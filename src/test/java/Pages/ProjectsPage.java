@@ -18,31 +18,41 @@ public class ProjectsPage extends BasePage{
     }
 
     private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//span[@class='project-title' and text()='%s']";
-
     private final static By PROJECT_LINK = By.xpath("//div[@class='project-block']");
+    private final static By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
+    private final static By PROJECT_NAME_INPUT = By.id("project-name");
+    private final static By PROJECT_CODE_INPUT = By.id("project-code");
+    private final static By DESCRIPTION_TEXT_AREA = By.id("description-area");
+    private final static By CREATE_PROJECT_BUTTON = By.xpath("//*[contains(text(), 'Create project')]");
 
     public ProjectsPage clickCreateNewProjectButton() {
-        $("#createButton").click();
+        $(CREATE_NEW_PROJECT_BUTTON).click();
         return this;
     }
 
+    public ProjectsPage createNewProjectButtonIsPresent () {
+        $(CREATE_NEW_PROJECT_BUTTON).isDisplayed();
+        return this;
+    }
+
+
     public ProjectsPage setProjectName(String projectName) {
-        $("#project-name").setValue(projectName);
+        $(PROJECT_NAME_INPUT).setValue(projectName);
         return this;
     }
 
     public ProjectsPage setProjectCode(String projectCode) {
-        $("#project-code").setValue(projectCode);
+        $(PROJECT_CODE_INPUT).setValue(projectCode);
         return this;
     }
 
     public ProjectsPage setDescription(String description) {
-        $("#description-area").setValue(description);
+        $(DESCRIPTION_TEXT_AREA).setValue(description);
         return this;
     }
 
     public NewProjectPage clickCreateProjectButton() {
-        $(byXpath("//*[contains(text(), 'Create project')]")).click();
+        $(CREATE_PROJECT_BUTTON).click();
         return new NewProjectPage(driver);
     }
 

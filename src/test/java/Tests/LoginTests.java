@@ -13,15 +13,12 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTests extends BaseTest{
 
-
-
-
     @Test
     public void loginTest() {
 
         open("/login");
-        loginPage.setUsername().setPassword().clickLoginButton().isPageOpened();
-        $(By.id("createButton")).shouldBe(visible);
+        loginPage.setUsername().setPassword().clickLoginButton().createNewProjectButtonIsPresent().isPageOpened();
+
     }
 
 }

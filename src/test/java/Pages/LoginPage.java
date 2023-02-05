@@ -1,11 +1,16 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage{
+
+    private final static By USERNAME_INPUT = By.cssSelector("#inputEmail");
+    private final static By PASSWORD_INPUT = By.cssSelector("#inputPassword");
+    private final static By LOGIN_BUTTON = By.cssSelector("#btnLogin");
 
     public static final String USERNAME = "tinkerbox@yandex.by";
     public static final String PASSWORD = "Tinker89Ggg123";
@@ -16,22 +21,21 @@ public class LoginPage extends BasePage{
     }
 
     public LoginPage setUsername() {
-        $("#inputEmail").setValue(USERNAME);
+        $(USERNAME_INPUT).setValue(USERNAME);
         return this;
     }
 
     public LoginPage setPassword() {
-        $("#inputPassword").setValue(PASSWORD);
+        $(PASSWORD_INPUT).setValue(PASSWORD);
         return this;
     }
 
     public ProjectsPage clickLoginButton() {
-        $("#btnLogin").click();
+        $(LOGIN_BUTTON).click();
         return new ProjectsPage(driver);
     }
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
-        }
+    }
 }
