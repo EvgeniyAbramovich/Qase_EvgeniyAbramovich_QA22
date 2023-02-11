@@ -10,5 +10,6 @@ public class Milestones {
 
     private String milestoneName;
     private String description;
+    private String dueDate;
 
 }

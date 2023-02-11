@@ -27,7 +27,7 @@ public class NewProjectPage extends BasePage{
         return false;
     }
 
-    public NewProjectPage getProjectName(String testProjectName) {
+    public NewProjectPage getProjectName() {
         $(PROJECT_NAME_TEXT).getText();
         return this;
     }
