@@ -4,7 +4,6 @@ import adapters.ProjectAdapter;
 import com.google.gson.Gson;
 import models.Project;
 import models.ProjectResponse;
-import models.Result;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -32,7 +31,7 @@ public class ApiTests {
 
         ProjectResponse expectedProjectResponseBody = ProjectResponse
                 .builder()
-                .result(Result
+                .result(Project
                         .builder()
                         .code(testCode)
                         .build())

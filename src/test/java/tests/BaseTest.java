@@ -4,10 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import modals.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.NewProjectPage;
-import pages.ProjectsPage;
+import pages.*;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -33,6 +30,11 @@ protected NewMilestonesModal newMilestonesModal;
 protected NewSharedStepsModal newSharedStepsModal;
 protected NewTestPlansModal newTestPlansModal;
 protected NewTestRunsModal newTestRunsModal;
+protected RepositoryPage repositoryPage;
+protected ConfigurationsPage configurationsPage;
+protected EnvironmentsPage environmentsPage;
+protected NewSuiteModal newSuiteModal;
+protected SharedStepsPage sharedStepsPage;
 
 
 protected final static String USERNAME = "tinkerbox@yandex.by";
@@ -71,6 +73,11 @@ protected final static String PASSWORD = "Tinker89Ggg123";
         newSharedStepsModal = new NewSharedStepsModal();
         newTestPlansModal = new NewTestPlansModal();
         newTestRunsModal = new NewTestRunsModal();
+        repositoryPage = new RepositoryPage();
+        configurationsPage = new ConfigurationsPage();
+        environmentsPage = new EnvironmentsPage();
+        newSuiteModal = new NewSuiteModal();
+        sharedStepsPage = new SharedStepsPage();
         }
 
     @AfterClass

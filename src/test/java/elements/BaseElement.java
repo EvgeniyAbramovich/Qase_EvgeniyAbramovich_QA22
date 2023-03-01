@@ -1,18 +1,17 @@
 package elements;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public abstract class BaseElement {
 
-    protected static WebDriver driver;
     protected String label;
-    public BaseElement(WebDriver driver, String label) {
-        this.driver = driver;
+    public BaseElement(String label) {
         this.label = label;
     }
     public void scrollIntoView(WebElement element) {
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", element);
+        executeJavaScript("arguments[0].scrollIntoView(true)", element);
     }
 }

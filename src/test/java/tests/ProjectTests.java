@@ -8,25 +8,21 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectTests extends BaseTest{
 
-
     @Test
     public void newProjectTest() {
-        String ProjectName = "Project1";
-        open("/login");
+        String projectName = "Project1";
+        String projectCode = "QA22";
+        String projectDescription = "Good Project";
+        open("/projects");
+
        loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickCreateNewProjectButton().
-               setProjectName(ProjectName).setProjectCode("QA22").setDescription("Good Project").
+               setProjectName(projectName).setProjectCode(projectCode).setDescription(projectDescription).
                clickCreateProjectButton().isPageOpened();
-        Assert.assertEquals(newProjectPage.getProjectName(), ProjectName);
+       Assert.assertEquals(newProjectPage.getProjectName(projectName), projectName);
+       Assert.assertEquals(newProjectPage.getProjectCode(projectCode), projectCode);
 
     }
-
-
-
-
-
-
-
-    }
+}
 
 
 

@@ -16,8 +16,8 @@ public class ProjectsPage extends BasePage{
         return false;
     }
 
-    private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//span[@class='project-title' and text()='%s']";
-    private final static By PROJECT_LINK = By.xpath("//div[@class='project-block']");
+    private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//a[@class='defect-title' and text()='%s']/ancestor::tr[@class='project-row']";
+    private final static By PROJECT_LINK = By.cssSelector(".defect-title");
     private final static By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
     private final static By PROJECT_NAME_INPUT = By.id("project-name");
     private final static By PROJECT_CODE_INPUT = By.id("project-code");

@@ -6,10 +6,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class NewProjectPage extends BasePage{
 
-
-
     private final static By PROJECT_NAME_TEXT = By.cssSelector(".sqabXr");
+    private final static By PROJECT_CODE_TEXT = By.cssSelector(".VqrSGU");
     private final static By CREATE_CASE_BUTTON = By.id("create-case-button");
+    private final static By CREATE_SUITE_BUTTON = By.id("create-suite-button");
     private final static By DEFECTS_LABEL = By.cssSelector("[aria-label = 'Defects']");
     private final static By SHARED_STEPS_LABEL = By.cssSelector("[aria-label='Shared Steps']");
     private final static By TEST_PLANS_LABEL = By.cssSelector("[aria-label='Test Plans']");
@@ -17,6 +17,8 @@ public class NewProjectPage extends BasePage{
     private final static By CONFIGURATIONS_LABEL = By.cssSelector("[aria-label='Configurations']");
     private final static By ENVIRONMENTS_LABEL = By.cssSelector("[aria-label='Environments']");
     private final static By MILESTONES_LABEL = By.cssSelector("[aria-label='Milestones']");
+
+
 
     public NewProjectPage() {
         super(driver);
@@ -27,12 +29,20 @@ public class NewProjectPage extends BasePage{
         return false;
     }
 
-    public NewProjectPage getProjectName() {
+    public String getProjectName(String projectName) {
         $(PROJECT_NAME_TEXT).getText();
-        return this;
+        return projectName;
+    }
+    public String getProjectCode(String projectCode) {
+        $(PROJECT_CODE_TEXT).getText();
+        return projectCode;
     }
     public NewProjectPage clickCreateCaseButton() {
         $(CREATE_CASE_BUTTON).click();
+        return this;
+    }
+    public NewProjectPage clickCreateSuiteButton() {
+        $(CREATE_SUITE_BUTTON).click();
         return this;
     }
     public NewProjectPage clickDefectLabel() {
