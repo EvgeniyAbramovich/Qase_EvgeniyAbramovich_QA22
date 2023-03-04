@@ -12,18 +12,11 @@ public class NewSuiteModal extends BaseModal{
 
     private final static By CREATE_BUTTON = By.xpath("//span[@class='UdZcu9' and text()='Create']");
 
-    public NewSuiteModal() {
-        super(driver);
-    }
-    @Override
-    public boolean isPageOpened() {
-        return false;
-    }
-
-    public void fillformSuite(Suite suite) {
+    public NewSuiteModal fillformSuite(Suite suite) {
         new Input("Suite name").setValue(suite.getSuitName());
         new DataPlaceholder("Description").setValue(suite.getDescription());
         new DataPlaceholder("Preconditions").setValue(suite.getPreconditions());
+        return this;
     }
 
     public RepositoryPage clickCreateButton() {

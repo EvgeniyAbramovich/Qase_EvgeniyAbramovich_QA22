@@ -1,13 +1,16 @@
 package pages;
 
+import modals.*;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class NewProjectPage extends BasePage{
 
-    private final static By PROJECT_NAME_TEXT = By.cssSelector(".sqabXr");
-    private final static By PROJECT_CODE_TEXT = By.cssSelector(".VqrSGU");
+    private final static By PROJECT_NAME_TEXT = By.xpath("//*[@id='layout']/child::div/child::div/" +
+            "child::div//child::img/following-sibling::div");
+    private final static By PROJECT_CODE_TEXT = By.xpath("//*[@id='application-content']/child::div/" +
+            "child::div/child::h1");
     private final static By CREATE_CASE_BUTTON = By.id("create-case-button");
     private final static By CREATE_SUITE_BUTTON = By.id("create-suite-button");
     private final static By DEFECTS_LABEL = By.cssSelector("[aria-label = 'Defects']");
@@ -20,15 +23,6 @@ public class NewProjectPage extends BasePage{
 
 
 
-    public NewProjectPage() {
-        super(driver);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return false;
-    }
-
     public String getProjectName(String projectName) {
         $(PROJECT_NAME_TEXT).getText();
         return projectName;
@@ -37,41 +31,41 @@ public class NewProjectPage extends BasePage{
         $(PROJECT_CODE_TEXT).getText();
         return projectCode;
     }
-    public NewProjectPage clickCreateCaseButton() {
+    public NewTestCaseModal clickCreateCaseButton() {
         $(CREATE_CASE_BUTTON).click();
-        return this;
+        return new NewTestCaseModal();
     }
-    public NewProjectPage clickCreateSuiteButton() {
+    public NewSuiteModal clickCreateSuiteButton() {
         $(CREATE_SUITE_BUTTON).click();
-        return this;
+        return new NewSuiteModal();
     }
-    public NewProjectPage clickDefectLabel() {
+    public NewDefectModal clickDefectLabel() {
         $(DEFECTS_LABEL).click();
-        return this;
+        return new NewDefectModal();
     }
-    public NewProjectPage clickSharedStepsLabel() {
+    public NewSharedStepsModal clickSharedStepsLabel() {
         $(SHARED_STEPS_LABEL).click();
-        return this;
+        return new NewSharedStepsModal();
     }
-    public NewProjectPage clickTestPlansLabel() {
+    public NewTestPlansModal clickTestPlansLabel() {
         $(TEST_PLANS_LABEL).click();
-        return this;
+        return new NewTestPlansModal();
     }
-    public NewProjectPage clickTestRunsLabel() {
+    public NewTestRunsModal clickTestRunsLabel() {
         $(TEST_RUNS_LABEL).click();
-        return this;
+        return new NewTestRunsModal();
     }
-    public NewProjectPage clickConfigurationsLabel() {
+    public NewConfigurationsModal clickConfigurationsLabel() {
         $(CONFIGURATIONS_LABEL).click();
-        return this;
+        return new NewConfigurationsModal();
     }
-    public NewProjectPage clickEnvironmentsLabel() {
+    public NewEnvironmentsModal clickEnvironmentsLabel() {
         $(ENVIRONMENTS_LABEL).click();
-        return this;
+        return new NewEnvironmentsModal();
     }
-    public NewProjectPage clickMilestonesLabel() {
+    public NewMilestonesModal clickMilestonesLabel() {
         $(MILESTONES_LABEL).click();
-        return this;
+        return new NewMilestonesModal();
     }
 
 

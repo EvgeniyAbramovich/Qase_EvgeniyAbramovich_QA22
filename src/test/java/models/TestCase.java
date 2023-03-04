@@ -9,7 +9,6 @@ import lombok.Data;
 @Builder(access = AccessLevel.PUBLIC)
 public class TestCase {
 
-    private String title;
     private Status status;
     private String description;
     private Severity severity;

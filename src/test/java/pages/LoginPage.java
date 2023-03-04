@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class LoginPage extends BasePage{
@@ -14,14 +15,6 @@ public class LoginPage extends BasePage{
     private final static By LOGIN_BUTTON = By.cssSelector("#btnLogin");
     private final static By LOGIN_ERROR = By.cssSelector(".form-control-feedback");
 
-    public LoginPage() {
-        super(driver);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return false;
-    }
 
     public LoginPage setUsername(String username) {
         $(USERNAME_INPUT).setValue(username);
@@ -46,6 +39,11 @@ public class LoginPage extends BasePage{
     public boolean LoginErrorIsPresent () {
         $(LOGIN_ERROR).shouldBe(visible);
         return true;
+    }
+
+    public LoginPage openLoginPage() {
+        open("/login");
+        return this;
     }
 
 

@@ -7,16 +7,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProjectsPage extends BasePage{
 
-    public ProjectsPage() {
-        super(driver);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return false;
-    }
-
-    private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//a[@class='defect-title' and text()='%s']/ancestor::tr[@class='project-row']";
+    private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//a[@class='defect-title' and text()='%s']" +
+            "/ancestor::tr[@class='project-row']";
     private final static By PROJECT_LINK = By.cssSelector(".defect-title");
     private final static By CREATE_NEW_PROJECT_BUTTON = By.id("createButton");
     private final static By PROJECT_NAME_INPUT = By.id("project-name");

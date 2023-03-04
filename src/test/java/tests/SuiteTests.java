@@ -13,14 +13,13 @@ public class SuiteTests extends BaseTest{
     public void newSuiteTest(){
 
         String projectName = "TestProject";
-        open("/login");
 
         String testSuiteName = "Smoke";
         String description = "Smoke Tests";
         String preconditions = "Open qase.io";
 
-        loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
-        newProjectPage.clickCreateSuiteButton().isPageOpened();
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
+        newProjectPage.clickCreateSuiteButton();
 
         Suite suite = Suite.builder().suitName(testSuiteName).description(description).preconditions(preconditions).build();
         newSuiteModal.fillformSuite(suite);

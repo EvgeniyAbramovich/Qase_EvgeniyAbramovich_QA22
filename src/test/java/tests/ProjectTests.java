@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 
@@ -13,13 +14,17 @@ public class ProjectTests extends BaseTest{
         String projectName = "Project1";
         String projectCode = "QA22";
         String projectDescription = "Good Project";
-        open("/projects");
 
-       loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickCreateNewProjectButton().
+       loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickCreateNewProjectButton().
                setProjectName(projectName).setProjectCode(projectCode).setDescription(projectDescription).
-               clickCreateProjectButton().isPageOpened();
+               clickCreateProjectButton();
        Assert.assertEquals(newProjectPage.getProjectName(projectName), projectName);
        Assert.assertEquals(newProjectPage.getProjectCode(projectCode), projectCode);
+
+    }
+
+    @AfterTest
+    public void deleteCreatedProject(){
 
     }
 }

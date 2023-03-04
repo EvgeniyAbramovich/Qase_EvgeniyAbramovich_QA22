@@ -11,17 +11,16 @@ public class LoginTests extends BaseTest{
     @Test
     public void positiveLoginTest() {
 
-        open("/login");
-        loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().isPageOpened();
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton();
         Assert.assertTrue(projectsPage.createNewProjectButtonIsPresent());
 
     }
 
     @Test
     public void logoutTest() {
-        open("/login");
-        loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().isPageOpened();
-        homePage.clickAccountButton().clickSignOutButton().isPageOpened();
+
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton();
+        homePage.clickAccountButton().clickSignOutButton();
         Assert.assertTrue(loginPage.LoginButtonIsPresent());
 
     }
@@ -29,8 +28,7 @@ public class LoginTests extends BaseTest{
     @Test
     public void negativeLoginTest() {
 
-        open("/login");
-        loginPage.setUsername(USERNAME).setPassword("fhfhfh").clickLoginButton();
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword("fhfhfh").clickLoginButton();
         Assert.assertTrue(loginPage.LoginErrorIsPresent());
 
     }

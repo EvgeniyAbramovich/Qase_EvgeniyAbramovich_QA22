@@ -15,16 +15,14 @@ public class EnvironmentsTests extends BaseTest{
         String testSlug = "Envir";
         String description = "All Right";
         String testHost = "qase.io";
-        open("/login");
 
-        loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
-        newProjectPage.clickEnvironmentsLabel().isPageOpened();
-        environmentsPage.clickNewEnvironmentButton().isPageOpened();
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
+        newProjectPage.clickEnvironmentsLabel();
+        environmentsPage.clickNewEnvironmentButton();
 
         Environment testEnvironment = Environment.builder().title(testEnvironmentName).slug(testSlug)
                 .description(description).host(testHost).build();
-        newEnvironmentsModal.fillformEnvironments(testEnvironment);
-        newEnvironmentsModal.clickCreateEnvironmentButton();
+        newEnvironmentsModal.fillformEnvironments(testEnvironment).clickCreateEnvironmentButton();
 
         Assert.assertEquals(environmentsPage.getEnvironmentName(testEnvironmentName), testEnvironmentName);
 

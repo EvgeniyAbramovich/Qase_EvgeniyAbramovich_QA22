@@ -9,6 +9,7 @@ import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +36,7 @@ protected ConfigurationsPage configurationsPage;
 protected EnvironmentsPage environmentsPage;
 protected NewSuiteModal newSuiteModal;
 protected SharedStepsPage sharedStepsPage;
+protected TestCaseDetailsModal testCaseDetailsModal;
 
 
 protected final static String USERNAME = "tinkerbox@yandex.by";
@@ -78,12 +80,12 @@ protected final static String PASSWORD = "Tinker89Ggg123";
         environmentsPage = new EnvironmentsPage();
         newSuiteModal = new NewSuiteModal();
         sharedStepsPage = new SharedStepsPage();
+        testCaseDetailsModal = new TestCaseDetailsModal();
         }
 
     @AfterClass
     public void tearDown() {
         WebDriver driver = getWebDriver();
-        driver.navigate().refresh();
         driver.quit();
     }
 }

@@ -12,11 +12,10 @@ public class ConfigurationTest extends BaseTest{
     public void newConfigurationTest() {
         String projectName = "TestProject";
         String testConfigurationGroupName = "New Configuration Group";
-        open("/login");
 
-        loginPage.setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
-        newProjectPage.clickConfigurationsLabel().isPageOpened();
-        configurationsPage.clickCreateConfigurationGroupButton().isPageOpened();
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
+        newProjectPage.clickConfigurationsLabel();
+        configurationsPage.clickCreateConfigurationGroupButton();
 
         Configurations testConfigurations = Configurations.builder().title(testConfigurationGroupName).build();
         newConfigurationsModal.fillformConfigurations(testConfigurations);

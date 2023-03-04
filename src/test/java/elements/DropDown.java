@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class DropDown extends BaseElement{
 
-    private final static String DROPDOWN_LOCATOR = "//label[text()='%s']/following-sibling::div";
+    private final static String DROPDOWN_LOCATOR = "//label[text()='%s']/parent::div";
     private String BUTTON_LOCATOR = ".//button";
-    private String OPTION_LOCATOR = ".//div[contains(@class, 'DJXdnf') and text() = '%s']";
+    private String OPTION_LOCATOR = ".//following::div[@id='modals']//following::div[text()='%s']";
 
     public DropDown(String label) {
         super(label);
