@@ -2,6 +2,7 @@ package elements;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -16,6 +17,14 @@ public class Input extends BaseElement{
         SelenideElement input = $(By.xpath(String.format(INPUT_LOCATOR, this.label)));
         scrollIntoView(input);
         input.sendKeys(value);
+
+    }
+
+    public void sendEnterKey() {
+        SelenideElement input = $(By.xpath(String.format(INPUT_LOCATOR, this.label)));
+        scrollIntoView(input);
+        input.sendKeys(Keys.ENTER);
+
     }
 
 

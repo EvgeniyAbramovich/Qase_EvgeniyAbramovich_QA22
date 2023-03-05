@@ -16,7 +16,9 @@ public enum Layer {
 
     public static Layer fromString(String value) {
         for (Layer layer : Layer.values()) {
-            if (layer.getName().equals(value));
+            if (layer.getName().equals(value)){
+                return layer;
+            }
         }
         return null;
     }

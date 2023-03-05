@@ -17,23 +17,17 @@ public class TestCaseTests extends BaseTest{
 
         loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
         newProjectPage.clickCreateCaseButton();
-        newTestCaseModal.setTitleTestCase(testCaseName);
 
-        TestCase testCase = TestCase.builder().status(Status.ACTUAL).description("New Test Case")
+
+        TestCase testCase = TestCase.builder().title(testCaseName).status(Status.ACTUAL).description("New Test Case")
                 .severity(Severity.MAJOR).priority(Priority.MEDIUM).type(Type.FUNCTIONAL).layer(Layer.API)
                 .isFlaky(IsFlaky.NO).behavior(Behavior.POSITIVE).automationStatus(AutomationStatus.NOT_AUTOMATED)
                 .preConditions("PreCondition").postConditions("PostCondition").build();
         newTestCaseModal.fillformTestCase(testCase);
         newTestCaseModal.clickSaveButton();
-        repositoryPage.clickTestCaseLink();
+        repositoryPage.clickTestCaseLink().clickEditButton();
 
-        Assert.assertEquals(testCaseDetailsModal.getTestCaseName(testCaseName), testCaseName);
-        Assert.assertEquals(testCaseDetailsModal.getTestCaseDetails(),testCase);
-
-
-
-
-
+        Assert.assertEquals(editTestCasePage.getTestCaseDetails(),testCase);
 
     }
 }

@@ -16,8 +16,8 @@ public class EnvironmentsPage extends BasePage {
         return new NewEnvironmentsModal();
     }
 
-    public String getEnvironmentName(String environmentName) {
-        $(ENVIRONMENT_TITLE).getText();
-        return environmentName;
+    public EditEnvironmentPage clickEnvironmentTitle() {
+        $(ENVIRONMENT_TITLE).click();
+        return new EditEnvironmentPage();
     }
 }

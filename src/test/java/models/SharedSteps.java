@@ -9,5 +9,8 @@ import lombok.Data;
 public class SharedSteps {
 
     private String sharedStepTitle;
+    private String action;
+    private String inputData;
+    private String expectedResult;
 
 }

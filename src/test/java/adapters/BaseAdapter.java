@@ -1,10 +1,15 @@
 package adapters;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.apache.http.protocol.HTTP;
 import utils.PropertyReader;
 
 import static io.restassured.RestAssured.given;
 
 public abstract class BaseAdapter {
+
+
     protected final static String BASE_URL = System.getenv().getOrDefault("BASE_URL", PropertyReader
             .getProperty("qase.api_base_url"));
     private final static String ACCESS_TOKEN = System.getenv().getOrDefault("ACCESS_TOKEN", PropertyReader

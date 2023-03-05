@@ -22,9 +22,11 @@ public class EnvironmentsTests extends BaseTest{
 
         Environment testEnvironment = Environment.builder().title(testEnvironmentName).slug(testSlug)
                 .description(description).host(testHost).build();
-        newEnvironmentsModal.fillformEnvironments(testEnvironment).clickCreateEnvironmentButton();
+        newEnvironmentsModal.fillformEnvironments(testEnvironment).clickCreateEnvironmentButton().clickEnvironmentTitle();
 
-        Assert.assertEquals(environmentsPage.getEnvironmentName(testEnvironmentName), testEnvironmentName);
+        Assert.assertEquals(editEnvironmentPage.getEnvironmentDetails(),testEnvironment);
+
+
 
     }
 }

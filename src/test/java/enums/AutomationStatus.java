@@ -16,7 +16,9 @@ public enum AutomationStatus {
 
     public static AutomationStatus fromString(String value) {
         for (AutomationStatus automationStatus : AutomationStatus.values()) {
-            if (automationStatus.getName().equals(value));
+            if (automationStatus.getName().equals(value)){
+                return automationStatus;
+            }
         }
         return null;
     }

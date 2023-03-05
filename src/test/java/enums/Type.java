@@ -19,7 +19,9 @@ public enum Type {
 
     public static Type fromString(String value) {
         for (Type type : Type.values()) {
-            if (type.getName().equals(value));
+            if (type.getName().equals(value)){
+                return type;
+            }
         }
         return null;
     }

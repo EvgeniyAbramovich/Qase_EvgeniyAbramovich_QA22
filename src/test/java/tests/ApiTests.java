@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ApiTests {
-    private final String expectedJson = "{\"status\":true,\"result\":{\"total\":3,\"filtered\":3,\"count\":3,\"entities\":[{\"title\":\"Demo Project\",\"code\":\"DEMO\",\"counts\":{\"cases\":10,\"suites\":3,\"milestones\":2,\"runs\":{\"total\":0,\"active\":0},\"defects\":{\"total\":0,\"open\":0}}},{\"title\":\"TMS Demo\",\"code\":\"TD\",\"counts\":{\"cases\":2,\"suites\":2,\"milestones\":0,\"runs\":{\"total\":2,\"active\":0},\"defects\":{\"total\":2,\"open\":0}}},{\"title\":\"QA19\",\"code\":\"QA\",\"counts\":{\"cases\":0,\"suites\":0,\"milestones\":0,\"runs\":{\"total\":0,\"active\":0},\"defects\":{\"total\":0,\"open\":0}}}]}}";
+    private final String EXPECTED_JSON = "{\"status\":true,\"result\":{\"total\":3,\"filtered\":3,\"count\":3,\"entities\":[{\"title\":\"Demo Project\",\"code\":\"DEMO\",\"counts\":{\"cases\":10,\"suites\":3,\"milestones\":2,\"runs\":{\"total\":0,\"active\":0},\"defects\":{\"total\":0,\"open\":0}}},{\"title\":\"TMS Demo\",\"code\":\"TD\",\"counts\":{\"cases\":2,\"suites\":2,\"milestones\":0,\"runs\":{\"total\":2,\"active\":0},\"defects\":{\"total\":2,\"open\":0}}},{\"title\":\"QA19\",\"code\":\"QA\",\"counts\":{\"cases\":0,\"suites\":0,\"milestones\":0,\"runs\":{\"total\":0,\"active\":0},\"defects\":{\"total\":0,\"open\":0}}}]}}";
 
     private final static Gson gson = new Gson();
     ProjectAdapter projectAdapter = new ProjectAdapter();
@@ -16,7 +16,7 @@ public class ApiTests {
     @Test
     public void getAllProjectsTest() {
         String responseBody = projectAdapter.getAllProjects(200);
-        Assert.assertEquals(responseBody, expectedJson);
+        Assert.assertEquals(responseBody, EXPECTED_JSON);
     }
 
     @Test
@@ -24,9 +24,9 @@ public class ApiTests {
         String testCode = "CODE3";
 
         Project project = Project.builder()
-                .title("ADFDSFDSF")
+                .title("NewProject")
                 .code(testCode)
-                .description("efsfsdfsdfsdf")
+                .description("All Right")
                 .build();
 
         ProjectResponse expectedProjectResponseBody = ProjectResponse

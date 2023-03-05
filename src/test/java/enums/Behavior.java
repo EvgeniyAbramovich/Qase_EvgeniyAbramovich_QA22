@@ -16,7 +16,9 @@ public enum Behavior {
 
     public static Behavior fromString(String value) {
         for (Behavior behavior : Behavior.values()) {
-            if (behavior.getName().equals(value));
+            if (behavior.getName().equals(value)){
+                return behavior;
+            }
         }
         return null;
     }

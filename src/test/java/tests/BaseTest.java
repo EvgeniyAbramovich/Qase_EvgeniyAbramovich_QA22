@@ -37,6 +37,12 @@ protected EnvironmentsPage environmentsPage;
 protected NewSuiteModal newSuiteModal;
 protected SharedStepsPage sharedStepsPage;
 protected TestCaseDetailsModal testCaseDetailsModal;
+protected DefectsPage defectsPage;
+protected EditEnvironmentPage editEnvironmentPage;
+protected EditSharedStepPage editSharedStepPage;
+protected EditTestCasePage editTestCasePage;
+protected MilestonesPage milestonesPage;
+protected EditMilestonePage editMilestonePage;
 
 
 protected final static String USERNAME = "tinkerbox@yandex.by";
@@ -81,6 +87,12 @@ protected final static String PASSWORD = "Tinker89Ggg123";
         newSuiteModal = new NewSuiteModal();
         sharedStepsPage = new SharedStepsPage();
         testCaseDetailsModal = new TestCaseDetailsModal();
+        defectsPage = new DefectsPage();
+        editEnvironmentPage = new EditEnvironmentPage();
+        editSharedStepPage = new EditSharedStepPage();
+        editTestCasePage = new EditTestCasePage();
+        milestonesPage = new MilestonesPage();
+        editMilestonePage = new EditMilestonePage();
         }
 
     @AfterClass

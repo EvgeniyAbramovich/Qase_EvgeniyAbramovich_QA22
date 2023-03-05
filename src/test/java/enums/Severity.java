@@ -16,7 +16,9 @@ public enum Severity {
 
     public static Severity fromString(String value) {
         for (Severity severity : Severity.values()) {
-            if (severity.getName().equals(value));
+            if (severity.getName().equals(value)){
+                return severity;
+            }
         }
         return null;
     }

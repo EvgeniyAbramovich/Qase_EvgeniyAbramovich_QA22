@@ -27,5 +27,6 @@ public class SuiteTests extends BaseTest{
 
         Assert.assertEquals(repositoryPage.getSuiteName(testSuiteName), testSuiteName);
 
+
     }
 }

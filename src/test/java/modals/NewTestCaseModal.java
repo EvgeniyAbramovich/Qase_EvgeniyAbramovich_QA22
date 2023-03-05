@@ -14,10 +14,8 @@ public class NewTestCaseModal extends BaseModal{
 
     private final static By SAVE_BUTTON = By.id("save-case");
 
-    private final static By TITLE_TEST_CASE_INPUT = By.xpath("//label[text()='Title']//parent::div//following-sibling::div//input[@class]");
-
-
     public NewTestCaseModal fillformTestCase(TestCase testCase) {
+        new Input("Title").setValue(testCase.getTitle());
         new DropDown("Status").selectValue(testCase.getStatus().getName());
         new DataPlaceholder("Description").setValue(testCase.getDescription());
         new DropDown("Severity").selectValue(testCase.getSeverity().getName());
@@ -37,10 +35,7 @@ public class NewTestCaseModal extends BaseModal{
         return new RepositoryPage();
     }
 
-    public NewTestCaseModal setTitleTestCase(String testCaseName) {
-        $(TITLE_TEST_CASE_INPUT).setValue(testCaseName);
-        return this;
-    }
+
 
 
 }
