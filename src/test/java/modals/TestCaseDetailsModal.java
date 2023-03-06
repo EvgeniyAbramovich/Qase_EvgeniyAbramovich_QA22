@@ -2,26 +2,21 @@ package modals;
 
 
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import pages.RepositoryPage;
+import pages.EditTestCasePage;
 
 import static com.codeborne.selenide.Selenide.$;
-
+@Log4j2
 public class TestCaseDetailsModal extends BaseModal{
 
-    private final static By TEST_CASE_NAME = By.xpath("//*[@id='suitecases-container']/child::div/descendant::h1/child::div");
     private final static By EDIT_BUTTON = By.xpath("//*[@id='suitecases-container']//descendant::a/span[text()]");
 
 
 
-    public String getTestCaseName(String testCaseName) {
-        $(TEST_CASE_NAME).getText();
-        return testCaseName;
-    }
-
-    public RepositoryPage clickEditButton() {
+    public EditTestCasePage clickEditButton() {
         $(EDIT_BUTTON).click();
-        return new RepositoryPage();
+        return new EditTestCasePage();
     }
 
 }

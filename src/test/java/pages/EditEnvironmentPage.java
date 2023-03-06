@@ -1,6 +1,7 @@
 package pages;
 
-import elements.EditDetail;
+import elements.DataPlaceHolderDetail;
+import elements.InputDetail;
 import models.Environment;
 
 public class EditEnvironmentPage extends BasePage{
@@ -8,10 +9,10 @@ public class EditEnvironmentPage extends BasePage{
     public Environment getEnvironmentDetails() {
         Environment.EnvironmentBuilder environment = Environment.builder();
 
-        environment.title(new EditDetail("Title").getInputDetailValue());
-        environment.slug(new EditDetail("Slug").getInputDetailValue());
-        environment.description(new EditDetail("Description").getDataPlaceholderDetailValue());
-        environment.host(new EditDetail("Host").getInputDetailValue());
+        environment.title(new InputDetail("Title").getInputDetailValue());
+        environment.slug(new InputDetail("Slug").getInputDetailValue());
+        environment.description(new DataPlaceHolderDetail("Description").getDataPlaceholderDetailValue());
+        environment.host(new InputDetail("Host").getInputDetailValue());
 
 
         return environment.build();

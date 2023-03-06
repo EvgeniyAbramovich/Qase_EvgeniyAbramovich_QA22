@@ -1,9 +1,11 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import jdk.jfr.Description;
 import modals.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Listeners;
 import pages.*;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
-
+@Listeners(TestListener.class)
 public abstract class BaseTest {
 
 
@@ -45,10 +47,10 @@ protected MilestonesPage milestonesPage;
 protected EditMilestonePage editMilestonePage;
 
 
-protected final static String USERNAME = "tinkerbox@yandex.by";
-protected final static String PASSWORD = "Tinker89Ggg123";
+protected final static String USERNAME = PropertyReader.getProperty("qase.username");
+protected final static String PASSWORD = PropertyReader.getProperty("qase.password");
 
-
+    @Description("Starting a browser")
     @BeforeClass
     public void initialize() {
         ChromeOptions options = new ChromeOptions();
@@ -60,7 +62,7 @@ protected final static String PASSWORD = "Tinker89Ggg123";
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         setWebDriver(driver);
-        Configuration.baseUrl = "https://app.qase.io";
+        Configuration.baseUrl = PropertyReader.getProperty("qase.api_base_url");
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
         Configuration.reportsFolder = "target/reports";
@@ -94,8 +96,8 @@ protected final static String PASSWORD = "Tinker89Ggg123";
         milestonesPage = new MilestonesPage();
         editMilestonePage = new EditMilestonePage();
         }
-
-    @AfterClass
+    @Description("Close a browser")
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         WebDriver driver = getWebDriver();
         driver.quit();

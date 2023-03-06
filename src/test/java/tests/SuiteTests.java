@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SuiteTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create Suite Test", groups = {"Smoke"})
     public void newSuiteTest(){
 
         String projectName = "TestProject";

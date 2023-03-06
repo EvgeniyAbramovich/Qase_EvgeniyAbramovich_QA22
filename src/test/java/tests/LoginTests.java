@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Login Test", groups = {"Smoke"})
     public void positiveLoginTest() {
 
         loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton();
@@ -16,7 +16,7 @@ public class LoginTests extends BaseTest{
 
     }
 
-    @Test
+    @Test(description = "Positive Logout Test", groups = {"Smoke"})
     public void logoutTest() {
 
         loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton();
@@ -25,7 +25,7 @@ public class LoginTests extends BaseTest{
 
     }
 
-    @Test
+    @Test(description = "Negative Logout Test", groups = {"Regression"})
     public void negativeLoginTest() {
 
         loginPage.openLoginPage().setUsername(USERNAME).setPassword("fhfhfh").clickLoginButton();

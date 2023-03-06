@@ -1,8 +1,6 @@
 package adapters;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import org.apache.http.protocol.HTTP;
+import com.google.gson.Gson;
 import utils.PropertyReader;
 
 import static io.restassured.RestAssured.given;
@@ -14,6 +12,7 @@ public abstract class BaseAdapter {
             .getProperty("qase.api_base_url"));
     private final static String ACCESS_TOKEN = System.getenv().getOrDefault("ACCESS_TOKEN", PropertyReader
             .getProperty("qase.access_token"));
+
 
     public String get(String endpoint, int statusCode) {
         return given()
@@ -40,6 +39,17 @@ public abstract class BaseAdapter {
                 .log().all()
                 .statusCode(statusCode).
                 extract().body().asString();
+    }
+
+    public String delete(String endpoint, int statusCode) {
+        return given().header("Token", ACCESS_TOKEN)
+                .header("Accept", "application/json")
+                .when()
+                .delete(BASE_URL + endpoint)
+                .then()
+                .log().all()
+                .statusCode(statusCode)
+                .extract().body().asString();
     }
 
 }

@@ -4,11 +4,11 @@ import models.Configurations;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.open;
+
 
 public class ConfigurationTest extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create Configuration Test", groups = {"Smoke"})
     public void newConfigurationTest() {
         String projectName = "TestProject";
         String testConfigurationGroupName = "New Configuration Group";

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class MilestonesTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create Milestone Test", groups = {"Smoke"})
     public void newMilestoneTest() {
 
         String projectName = "TestProject";

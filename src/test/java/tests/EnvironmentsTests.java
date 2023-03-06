@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class EnvironmentsTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create Environment Test", groups = {"Smoke"})
     public void newEnvironmentTest() {
         String projectName = "TestProject";
         String testEnvironmentName = "New Environment";
@@ -18,7 +18,7 @@ public class EnvironmentsTests extends BaseTest{
 
         loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
         newProjectPage.clickEnvironmentsLabel();
-        environmentsPage.clickNewEnvironmentButton();
+        environmentsPage.clickCreateNewEnvironmentButton();
 
         Environment testEnvironment = Environment.builder().title(testEnvironmentName).slug(testSlug)
                 .description(description).host(testHost).build();

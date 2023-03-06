@@ -1,10 +1,11 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-
+@Log4j2
 public class ProjectsPage extends BasePage{
 
     private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//a[@class='defect-title' and text()='%s']" +
@@ -17,37 +18,44 @@ public class ProjectsPage extends BasePage{
     private final static By CREATE_PROJECT_BUTTON = By.xpath("//*[contains(text(), 'Create project')]");
 
     public ProjectsPage clickCreateNewProjectButton() {
+        log.info("Clicking Create New Project Button");
         $(CREATE_NEW_PROJECT_BUTTON).click();
         return this;
     }
 
     public boolean createNewProjectButtonIsPresent () {
+        log.info("New Project Button is present");
         $(CREATE_NEW_PROJECT_BUTTON).shouldBe(visible);
         return true;
     }
 
 
     public ProjectsPage setProjectName(String projectName) {
+        log.info("Setting Project Name = {}", projectName);
         $(PROJECT_NAME_INPUT).setValue(projectName);
         return this;
     }
 
     public ProjectsPage setProjectCode(String projectCode) {
+        log.info("Setting Project Code = {}", projectCode);
         $(PROJECT_CODE_INPUT).setValue(projectCode);
         return this;
     }
 
     public ProjectsPage setDescription(String description) {
+        log.info("Setting Description = {}", description);
         $(DESCRIPTION_TEXT_AREA).setValue(description);
         return this;
     }
 
     public NewProjectPage clickCreateProjectButton() {
+        log.info("Clicking Create Project Button");
         $(CREATE_PROJECT_BUTTON).click();
         return new NewProjectPage();
     }
 
     public void clickProjectLink(String projectName) {
+        log.info("Clicking Project Link with Name = {}",projectName);
        $(getProjectContainerByName(projectName)).$(PROJECT_LINK).click();
     }
 

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SharedStepsTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create Shared Step Test", groups = {"Smoke"})
     public void newSharedStepTest(){
 
         String projectName = "TestProject";

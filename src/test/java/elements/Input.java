@@ -1,11 +1,12 @@
 package elements;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
-
+@Log4j2
 public class Input extends BaseElement{
     public Input(String label) {
         super(label);
@@ -16,6 +17,7 @@ public class Input extends BaseElement{
     public void setValue(String value) {
         SelenideElement input = $(By.xpath(String.format(INPUT_LOCATOR, this.label)));
         scrollIntoView(input);
+        log.info("Set value = {}", value);
         input.sendKeys(value);
 
     }
@@ -23,6 +25,7 @@ public class Input extends BaseElement{
     public void sendEnterKey() {
         SelenideElement input = $(By.xpath(String.format(INPUT_LOCATOR, this.label)));
         scrollIntoView(input);
+        log.info("Send ENTER key");
         input.sendKeys(Keys.ENTER);
 
     }

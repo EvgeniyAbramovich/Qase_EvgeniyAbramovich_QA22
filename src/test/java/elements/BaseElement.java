@@ -1,17 +1,20 @@
 package elements;
 
 
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
+import lombok.extern.log4j.Log4j2;
+
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-
+@Log4j2
 public abstract class BaseElement {
 
     protected String label;
     public BaseElement(String label) {
         this.label = label;
     }
-    public void scrollIntoView(WebElement element) {
+    public void scrollIntoView(SelenideElement element) {
+        log.info("Scrolling to element ={}",element);
         executeJavaScript("arguments[0].scrollIntoView(true)", element);
     }
 }

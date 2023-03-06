@@ -3,18 +3,20 @@ package modals;
 import elements.DataPlaceholder;
 import elements.DropDown;
 import elements.Input;
+import lombok.extern.log4j.Log4j2;
 import models.TestCase;
 import org.openqa.selenium.By;
 import pages.RepositoryPage;
 
 import static com.codeborne.selenide.Selenide.$;
 
-
+@Log4j2
 public class NewTestCaseModal extends BaseModal{
 
     private final static By SAVE_BUTTON = By.id("save-case");
 
     public NewTestCaseModal fillformTestCase(TestCase testCase) {
+        log.info("Setting values = {}", testCase);
         new Input("Title").setValue(testCase.getTitle());
         new DropDown("Status").selectValue(testCase.getStatus().getName());
         new DataPlaceholder("Description").setValue(testCase.getDescription());
@@ -31,6 +33,7 @@ public class NewTestCaseModal extends BaseModal{
     }
 
     public RepositoryPage clickSaveButton() {
+        log.info("Clicking Save Button");
         $(SAVE_BUTTON).click();
         return new RepositoryPage();
     }

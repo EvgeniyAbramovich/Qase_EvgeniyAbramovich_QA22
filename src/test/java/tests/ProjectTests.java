@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create Project Test", groups = {"Smoke"})
     public void newProjectTest() {
         String projectName = "Project1";
         String projectCode = "QA22";
@@ -23,10 +23,7 @@ public class ProjectTests extends BaseTest{
 
     }
 
-    @AfterTest
-    public void deleteCreatedProject(){
 
-    }
 }
 
 

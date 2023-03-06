@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class TestCaseTests extends BaseTest{
 
-    @Test
+    @Test(description = "Positive Create TestCase Test", groups = {"Smoke"})
     public void newTestCaseTest(){
 
         String projectName = "TestProject";
