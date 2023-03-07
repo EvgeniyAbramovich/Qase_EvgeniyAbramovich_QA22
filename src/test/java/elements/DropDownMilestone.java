@@ -23,7 +23,7 @@ public class DropDownMilestone extends BaseElement{
         scrollIntoView(dropdown);
         log.info("Clicking dropdown with label = {}",this.label);
         (dropdown).$(By.xpath(BUTTON_LOCATOR)).click();
-        log.info("Select dropdown option = {}", value);
+        log.info("Select dropdown option = {}{}", value,label);
         (dropdown).$(By.xpath(String.format(OPTION_LOCATOR, value))).click();
     }
 }

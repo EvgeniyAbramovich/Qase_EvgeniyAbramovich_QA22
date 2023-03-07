@@ -14,8 +14,6 @@ public class SharedStepsTests extends BaseTest{
         String projectName = "TestProject";
         String sharedStepName = "Authorization";
 
-
-
         loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
         newProjectPage.clickSharedStepsLabel();
 
@@ -27,14 +25,5 @@ public class SharedStepsTests extends BaseTest{
 
         Assert.assertEquals(editSharedStepPage.getSharedStepDetails(), sharedSteps);
 
-
-
-
-
-
-
-
-
-
-    }
+        }
 }

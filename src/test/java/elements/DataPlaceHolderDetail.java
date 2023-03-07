@@ -17,7 +17,7 @@ public class DataPlaceHolderDetail extends BaseElement{
     public String getDataPlaceholderDetailValue(){
         SelenideElement dataPlaceholderDetail = $(By.xpath(String.format(DATA_PLACEHOLDER_DETAILS_LOCATOR, this.label)));
         scrollIntoView(dataPlaceholderDetail);
-        log.info("Get value from input");
+        log.info("Get value from DataPlaceholder={}",label);
         return dataPlaceholderDetail.getText();
     }
 }

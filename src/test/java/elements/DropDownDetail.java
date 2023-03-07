@@ -17,7 +17,7 @@ public class DropDownDetail extends BaseElement{
     public String getDropdownDetailValue(){
         SelenideElement dropdownDetail = $(By.xpath(String.format(DROPDOWN_DETAILS_LOCATOR, this.label)));
         scrollIntoView(dropdownDetail);
-        log.info("Get value from dropdown");
+        log.info("Get value from dropdown = {}",label);
         return dropdownDetail.getText();
     }
 }

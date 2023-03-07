@@ -10,11 +10,13 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public abstract class BaseElement {
 
     protected String label;
+
     public BaseElement(String label) {
         this.label = label;
     }
+
     public void scrollIntoView(SelenideElement element) {
-        log.info("Scrolling to element ={}",element);
+        log.debug("Scrolling to element ={}",element);
         executeJavaScript("arguments[0].scrollIntoView(true)", element);
     }
 }

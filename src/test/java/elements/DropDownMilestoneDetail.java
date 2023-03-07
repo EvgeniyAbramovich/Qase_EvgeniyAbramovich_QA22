@@ -18,7 +18,7 @@ public class DropDownMilestoneDetail extends BaseElement{
 
         SelenideElement dropdownMilestoneDetail = $(By.xpath(String.format(MILESTONE_DROPDOWN_LOCATOR, this.label)));
         scrollIntoView(dropdownMilestoneDetail);
-        log.info("Get value from dropdown");
+        log.info("Get value from dropdown = {}",label);
         return dropdownMilestoneDetail.getText();
     }
 }

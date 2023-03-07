@@ -1,6 +1,9 @@
 package tests;
 
+import adapters.ProjectAdapter;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Description;
 import modals.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -45,10 +48,18 @@ protected EditSharedStepPage editSharedStepPage;
 protected EditTestCasePage editTestCasePage;
 protected MilestonesPage milestonesPage;
 protected EditMilestonePage editMilestonePage;
+protected ProjectAdapter projectAdapter;
 
 
 protected final static String USERNAME = PropertyReader.getProperty("qase.username");
 protected final static String PASSWORD = PropertyReader.getProperty("qase.password");
+    @Description("Creating Allure Reports")
+    @BeforeClass
+    static void setupAllureReports() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(false)
+                .savePageSource(true));
+    }
 
     @Description("Starting a browser")
     @BeforeClass
@@ -62,7 +73,7 @@ protected final static String PASSWORD = PropertyReader.getProperty("qase.passwo
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         setWebDriver(driver);
-        Configuration.baseUrl = PropertyReader.getProperty("qase.api_base_url");
+        Configuration.baseUrl = PropertyReader.getProperty("qase.base_url");
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
         Configuration.reportsFolder = "target/reports";
@@ -95,6 +106,7 @@ protected final static String PASSWORD = PropertyReader.getProperty("qase.passwo
         editTestCasePage = new EditTestCasePage();
         milestonesPage = new MilestonesPage();
         editMilestonePage = new EditMilestonePage();
+        projectAdapter = new ProjectAdapter();
         }
     @Description("Close a browser")
     @AfterClass(alwaysRun = true)

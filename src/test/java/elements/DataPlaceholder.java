@@ -19,7 +19,7 @@ public class DataPlaceholder extends BaseElement{
     public void setValue(String value) {
         SelenideElement dataPlaceholder = $(By.xpath(String.format(DATA_PLACEHOLDER_LOCATOR, this.label)));
         scrollIntoView(dataPlaceholder);
-        log.info("Set value = {}", value);
+        log.info("Set value = {}{}", value,label);
         dataPlaceholder.sendKeys(value);
     }
 }

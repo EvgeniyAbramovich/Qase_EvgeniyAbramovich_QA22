@@ -11,13 +11,13 @@ public class InputMilestoneDetail extends BaseElement{
     public InputMilestoneDetail(String label) {
         super(label);
     }
+
     private final static String MILESTONE_INPUT_LOCATOR = "//label[text()='Due date']/parent::div/child::input";
 
     public String getMilestoneInputDetailValue(){
         SelenideElement inputDetail = $(By.xpath(String.format(MILESTONE_INPUT_LOCATOR, this.label)));
         scrollIntoView(inputDetail);
-        log.info("Get value from input");
+        log.info("Get value from input = {}",label);
         return inputDetail.getValue();
     }
-
 }

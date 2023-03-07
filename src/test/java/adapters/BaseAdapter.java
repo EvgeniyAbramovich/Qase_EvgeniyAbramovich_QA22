@@ -1,6 +1,5 @@
 package adapters;
 
-import com.google.gson.Gson;
 import utils.PropertyReader;
 
 import static io.restassured.RestAssured.given;
@@ -40,6 +39,7 @@ public abstract class BaseAdapter {
                 .statusCode(statusCode).
                 extract().body().asString();
     }
+
 
     public String delete(String endpoint, int statusCode) {
         return given().header("Token", ACCESS_TOKEN)

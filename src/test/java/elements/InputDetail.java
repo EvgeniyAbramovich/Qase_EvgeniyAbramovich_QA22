@@ -12,16 +12,12 @@ public class InputDetail extends BaseElement{
         super(label);
     }
 
-
-
-
     private final static String INPUT_DETAILS_LOCATOR = "//label[text()='%s']//following-sibling::div/child::input";
-
 
     public String getInputDetailValue(){
         SelenideElement inputDetail = $(By.xpath(String.format(INPUT_DETAILS_LOCATOR, this.label)));
         scrollIntoView(inputDetail);
-        log.info("Get value from input");
+        log.info("Get value from input = {}",label);
         return inputDetail.getValue();
     }
 
