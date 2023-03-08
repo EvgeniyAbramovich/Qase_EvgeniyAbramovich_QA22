@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 
 
-public class ConfigurationTest extends BaseTest{
+public class ConfigurationTests extends BaseTest{
 
     @Test(description = "Positive Create Configuration Test", groups = {"Smoke"})
     public void newConfigurationTest() {

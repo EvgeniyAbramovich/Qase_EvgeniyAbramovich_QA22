@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Tests" parallel="tests" thread-count="2">
+    <test name="Smoke tests on chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="tests.ConfigurationTests"/>
+            <class name="tests.ConfigurationTests"/>
+            <class name="tests.EnvironmentsTests"/>
+            <class name="tests.MilestonesTests"/>
+            <class name="tests.ProjectTests"/>
+            <class name="tests.SuiteTests"/>
+            <class name="tests.TestCaseTests"/>
+            <class name="tests.SharedStepsTests">
+                <methods>
+                    <include name="newSharedStepTest"/>
+                </methods>
+            </class>
+            <class name="tests.LoginTests">
+                <methods>
+                    <exclude name="negativeLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+</suite>

@@ -42,11 +42,7 @@ public class NewProjectPage extends BasePage{
         $(CREATE_SUITE_BUTTON).click();
         return new NewSuiteModal();
     }
-    public NewDefectModal clickDefectLabel() {
-        log.info("Clicking Defect Label");
-        $(DEFECTS_LABEL).click();
-        return new NewDefectModal();
-    }
+
     public NewSharedStepsModal clickSharedStepsLabel() {
         log.info("Clicking Shared Steps Label");
         $(SHARED_STEPS_LABEL).click();

@@ -2,7 +2,7 @@ package adapters;
 
 public class DefectAdapter extends BaseAdapter{
 
-    private final static String ENDPOINT = "defect";
+    private final static String ENDPOINT = "/defect";
 
     public String createDefect(String projectCode, String requestBody, int statusCode) {
         return post(ENDPOINT + "/" + projectCode, statusCode, requestBody);

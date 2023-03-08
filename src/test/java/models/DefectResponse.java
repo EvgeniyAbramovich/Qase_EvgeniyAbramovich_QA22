@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class DefectResponse {
-
-    private boolean status;
+    @Builder.Default
+    private boolean status = true;
     private Defects result;
 }

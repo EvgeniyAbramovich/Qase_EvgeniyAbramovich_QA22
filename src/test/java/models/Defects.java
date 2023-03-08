@@ -1,6 +1,6 @@
 package models;
 
-import enums.Severity;
+import com.google.gson.annotations.SerializedName;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +9,8 @@ import lombok.Data;
 @Builder(access = AccessLevel.PUBLIC)
 public class Defects {
 
-    private String defectTitle;
+    private String title;
+    @SerializedName(value = "actual_result")
     private String actualResult;
-    private Severity severity;
-
+    private int severity;
 }
