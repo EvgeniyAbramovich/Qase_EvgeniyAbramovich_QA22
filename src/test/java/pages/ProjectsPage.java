@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 @Log4j2
 public class ProjectsPage extends BasePage{
 
@@ -61,5 +63,11 @@ public class ProjectsPage extends BasePage{
 
     private By getProjectContainerByName(String projectName) {
         return By.xpath(String.format(PROJECT_BLOCK_CONTAINER_LOCATOR, projectName));
+    }
+
+    public ProjectsPage openProjectsPage() {
+        log.info("Opened Projects page");
+        open("/projects");
+        return this;
     }
 }

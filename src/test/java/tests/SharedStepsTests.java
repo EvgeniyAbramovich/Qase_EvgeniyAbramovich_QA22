@@ -26,4 +26,19 @@ public class SharedStepsTests extends BaseTest{
         Assert.assertEquals(editSharedStepPage.getSharedStepDetails(), sharedSteps);
 
         }
+
+        @Test(description = "Negative Shared Step Page", groups = {"Regression"})
+    public void negativeSharedStepTest(){
+
+        String projectName = "TestProject";
+        String sharedStepName = "Authorization";
+
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickProjectLink(projectName);
+        newProjectPage.clickSharedStepsLabel();
+        sharedStepsPage.clickCreateSharedStepButton();
+        newSharedStepsModal.setSharedStepName(sharedStepName).clickCreateButton();
+
+        Assert.assertTrue(newSharedStepsModal.ErrorMessageIsPresent());
+
+        }
 }

@@ -16,8 +16,6 @@ public class NewProjectPage extends BasePage{
     private final static By CREATE_SUITE_BUTTON = By.id("create-suite-button");
     private final static By DEFECTS_LABEL = By.cssSelector("[aria-label = 'Defects']");
     private final static By SHARED_STEPS_LABEL = By.cssSelector("[aria-label='Shared Steps']");
-    private final static By TEST_PLANS_LABEL = By.cssSelector("[aria-label='Test Plans']");
-    private final static By TEST_RUNS_LABEL = By.cssSelector("[aria-label='Test Runs']");
     private final static By CONFIGURATIONS_LABEL = By.cssSelector("[aria-label='Configurations']");
     private final static By ENVIRONMENTS_LABEL = By.cssSelector("[aria-label='Environments']");
     private final static By MILESTONES_LABEL = By.cssSelector("[aria-label='Milestones']");
@@ -53,16 +51,6 @@ public class NewProjectPage extends BasePage{
         log.info("Clicking Shared Steps Label");
         $(SHARED_STEPS_LABEL).click();
         return new NewSharedStepsModal();
-    }
-    public NewTestPlansModal clickTestPlansLabel() {
-        log.info("Clicking Test Plans Label");
-        $(TEST_PLANS_LABEL).click();
-        return new NewTestPlansModal();
-    }
-    public NewTestRunsModal clickTestRunsLabel() {
-        log.info("Clicking Test Runs Label");
-        $(TEST_RUNS_LABEL).click();
-        return new NewTestRunsModal();
     }
     public NewConfigurationsModal clickConfigurationsLabel() {
         log.info("Clicking Configuration Label");

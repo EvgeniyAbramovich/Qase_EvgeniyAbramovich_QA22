@@ -31,6 +31,7 @@ public class LoginTests extends BaseTest{
         loginPage.openLoginPage().setUsername(USERNAME).setPassword("fhfhfh").clickLoginButton();
         Assert.assertTrue(loginPage.LoginErrorIsPresent());
 
+
     }
 
 

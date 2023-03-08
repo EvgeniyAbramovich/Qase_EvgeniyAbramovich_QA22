@@ -1,5 +1,6 @@
 package tests;
 
+import adapters.DefectAdapter;
 import adapters.ProjectAdapter;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -34,8 +35,6 @@ protected NewConfigurationsModal newConfigurationsModal;
 protected NewEnvironmentsModal newEnvironmentsModal;
 protected NewMilestonesModal newMilestonesModal;
 protected NewSharedStepsModal newSharedStepsModal;
-protected NewTestPlansModal newTestPlansModal;
-protected NewTestRunsModal newTestRunsModal;
 protected RepositoryPage repositoryPage;
 protected ConfigurationsPage configurationsPage;
 protected EnvironmentsPage environmentsPage;
@@ -92,8 +91,6 @@ protected final static String PASSWORD = PropertyReader.getProperty("qase.passwo
         newEnvironmentsModal = new NewEnvironmentsModal();
         newMilestonesModal = new NewMilestonesModal();
         newSharedStepsModal = new NewSharedStepsModal();
-        newTestPlansModal = new NewTestPlansModal();
-        newTestRunsModal = new NewTestRunsModal();
         repositoryPage = new RepositoryPage();
         configurationsPage = new ConfigurationsPage();
         environmentsPage = new EnvironmentsPage();
