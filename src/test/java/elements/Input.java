@@ -17,7 +17,7 @@ public class Input extends BaseElement{
     public void setValue(String value) {
         SelenideElement input = $(By.xpath(String.format(INPUT_LOCATOR, this.label)));
         scrollIntoView(input);
-        log.info("Set value = {}{}", value,label);
+        log.info("Setting '{}' value = {}",label,value);
         input.sendKeys(value);
     }
 

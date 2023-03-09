@@ -1,21 +1,46 @@
-package tests;
+package tests.api;
 
 import adapters.DefectAdapter;
+import adapters.ProjectAdapter;
 import com.google.gson.Gson;
 import models.DefectResponse;
 import models.Defects;
+import models.Project;
+import models.ProjectResponse;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import javax.xml.transform.Result;
 
 public class ApiDefectTests{
 
-    private static final String PROJECT_CODE = "123";
+    private static final String TEST_PROJECT_NAME = "Test Project Defects API";
+    private static final String PROJECT_CODE = "TPDA";
     private static final Gson GSON = new Gson();
+    ProjectAdapter projectAdapter = new ProjectAdapter();
     DefectAdapter defectAdapter = new DefectAdapter();
     String DEFECT_TITLE = "New Defect";
     String ACTUAL_RESULT = "Project not work";
     int SEVERITY_VALUE = 1;
+    int DEFECT_ID = 1;
+
+    @BeforeTest(description = "Create Test Project")
+    public void createTestProject(){
+
+            String testCode = PROJECT_CODE;
+
+            Project project = Project.builder()
+                    .title(TEST_PROJECT_NAME)
+                    .code(testCode)
+                    .description("Test Project")
+                    .build();
+
+            projectAdapter.createProject(200, GSON.toJson(project));
+
+        }
 
     @Test(description = "Create Defect Test", groups = {"API"})
     public void createDefectTest() {
@@ -32,14 +57,16 @@ public class ApiDefectTests{
         Assert.assertEquals(expectedResponse, GSON.fromJson(actualResponse, DefectResponse.class));
     }
 
-    @Test
+    @AfterTest
     public void deleteDefectByProjectCodeAndId(){
-        final int DEFECT_ID = Integer.parseInt("17");
 
         defectAdapter.deleteDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
 
+    }
 
-
+    @AfterTest(description = "Delete Created Test Project")
+    public void deleteNewTestProjectByCode() {
+        projectAdapter.deleteProjectByCode(200, PROJECT_CODE);
     }
 
 

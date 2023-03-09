@@ -1,10 +1,9 @@
 package tests;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utils.AllureUtils;
+
 
 import java.util.Date;
 @Log4j2
@@ -27,7 +26,6 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
         log.info("Test " + result.getName() + " failed");
-        AllureUtils.attachScreenshot();
 
     }
 }

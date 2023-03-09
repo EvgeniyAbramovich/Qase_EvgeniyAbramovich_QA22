@@ -6,12 +6,10 @@ import static io.restassured.RestAssured.given;
 
 public abstract class BaseAdapter {
 
-
     protected final static String BASE_URL = System.getenv().getOrDefault("BASE_URL", PropertyReader
             .getProperty("qase.api_base_url"));
     private final static String ACCESS_TOKEN = System.getenv().getOrDefault("ACCESS_TOKEN", PropertyReader
             .getProperty("qase.access_token"));
-
 
     public String get(String endpoint, int statusCode) {
         return given()
@@ -39,7 +37,6 @@ public abstract class BaseAdapter {
                 .statusCode(statusCode).
                 extract().body().asString();
     }
-
 
     public String delete(String endpoint, int statusCode) {
         return given().header("Token", ACCESS_TOKEN)

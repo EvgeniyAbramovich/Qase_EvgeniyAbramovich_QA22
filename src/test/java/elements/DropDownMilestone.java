@@ -11,7 +11,6 @@ public class DropDownMilestone extends BaseElement{
     public DropDownMilestone(String label) {
         super(label);
     }
-
     private final static String DROPDOWN_LOCATOR = "//label[text()='%s']/parent::div/parent::div";
     private String BUTTON_LOCATOR = ".//button";
     private String OPTION_LOCATOR = ".//button/following::div[@class and text()='%s']";
@@ -23,7 +22,7 @@ public class DropDownMilestone extends BaseElement{
         scrollIntoView(dropdown);
         log.info("Clicking dropdown with label = {}",this.label);
         (dropdown).$(By.xpath(BUTTON_LOCATOR)).click();
-        log.info("Select dropdown option = {}{}", value,label);
+        log.info("Select option '{}' dropdown = {}", value,label);
         (dropdown).$(By.xpath(String.format(OPTION_LOCATOR, value))).click();
     }
 }

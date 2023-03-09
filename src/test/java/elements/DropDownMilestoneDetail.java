@@ -11,9 +11,7 @@ public class DropDownMilestoneDetail extends BaseElement{
     public DropDownMilestoneDetail(String label) {
         super(label);
     }
-
     private final static String MILESTONE_DROPDOWN_LOCATOR = "//label[text()='%s']/parent::div/parent::div//button//child::div";
-
     public String getMilestoneDropDownValue() {
 
         SelenideElement dropdownMilestoneDetail = $(By.xpath(String.format(MILESTONE_DROPDOWN_LOCATOR, this.label)));

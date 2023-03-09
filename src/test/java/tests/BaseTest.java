@@ -1,8 +1,8 @@
 package tests;
 
-import adapters.DefectAdapter;
 import adapters.ProjectAdapter;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.google.gson.Gson;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Description;
@@ -45,16 +45,16 @@ protected EditSharedStepPage editSharedStepPage;
 protected EditTestCasePage editTestCasePage;
 protected MilestonesPage milestonesPage;
 protected EditMilestonePage editMilestonePage;
-protected ProjectAdapter projectAdapter;
-
 
 protected final static String USERNAME = PropertyReader.getProperty("qase.username");
 protected final static String PASSWORD = PropertyReader.getProperty("qase.password");
+protected static final Gson GSON = new Gson();
+protected final static ProjectAdapter projectAdapter = new ProjectAdapter();
     @Description("Creating Allure Reports")
     @BeforeClass
     static void setupAllureReports() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
-                .screenshots(false)
+                .screenshots(true)
                 .savePageSource(true));
     }
 
@@ -99,7 +99,7 @@ protected final static String PASSWORD = PropertyReader.getProperty("qase.passwo
         editTestCasePage = new EditTestCasePage();
         milestonesPage = new MilestonesPage();
         editMilestonePage = new EditMilestonePage();
-        projectAdapter = new ProjectAdapter();
+
         }
     @Description("Close a browser")
     @AfterClass(alwaysRun = true)
