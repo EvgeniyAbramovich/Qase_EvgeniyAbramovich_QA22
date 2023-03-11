@@ -43,6 +43,7 @@ public class LoginTests extends BaseTest{
         return new Object[][]{
                 {"tinkerbox@yandex.by", "fhfhfh"},
                 {"fakebox@mail.ru", "Tinker89Ggg123"},
+                {"fakebox@mail.ru", "аоаоаоа"},
 
         };
     }

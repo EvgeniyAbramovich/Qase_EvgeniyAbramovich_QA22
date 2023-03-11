@@ -18,7 +18,7 @@ public class ApiProjectTests{
             "{\"total\":0,\"open\":0}}}}";
 
 
-    @BeforeTest(description = "Create Test Project")
+    @BeforeTest(alwaysRun = true, description = "Create Test Project")
     public void createTestProject(){
 
         String testCode = PROJECT_CODE;
@@ -40,13 +40,10 @@ public class ApiProjectTests{
 
     }
 
-    @AfterTest(description = "Delete Created Test Project")
+    @AfterTest(alwaysRun = true, description = "Delete Created Test Project")
     public void deleteNewTestProjectByCode() {
         projectAdapter.deleteProjectByCode(200, PROJECT_CODE);
     }
-
-
-
 
 }
 

@@ -26,7 +26,7 @@ public class ApiDefectTests{
     int SEVERITY_VALUE = 1;
     int DEFECT_ID = 1;
 
-    @BeforeTest(description = "Create Test Project")
+    @BeforeTest(alwaysRun = true, description = "Create Test Project")
     public void createTestProject(){
 
             String testCode = PROJECT_CODE;
@@ -56,14 +56,14 @@ public class ApiDefectTests{
         Assert.assertEquals(expectedResponse, GSON.fromJson(actualResponse, DefectResponse.class));
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deleteDefectByProjectCodeAndId(){
 
         defectAdapter.deleteDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
 
     }
 
-    @AfterTest(description = "Delete Created Test Project")
+    @AfterTest(alwaysRun = true, description = "Delete Created Test Project")
     public void deleteNewTestProjectByCode() {
         projectAdapter.deleteProjectByCode(200, PROJECT_CODE);
     }

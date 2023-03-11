@@ -60,7 +60,7 @@ protected final static String TEST_PROJECT_CODE = "QA22";
     }
 
     @Description("Starting a browser")
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void initialize() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors");
@@ -104,7 +104,7 @@ protected final static String TEST_PROJECT_CODE = "QA22";
         }
 
 
-    @BeforeTest(description = "Create Test Project")
+    @BeforeTest(alwaysRun = true, description = "Create Test Project")
     public void createTestProject(){
 
         String testCode = TEST_PROJECT_CODE;
@@ -118,7 +118,7 @@ protected final static String TEST_PROJECT_CODE = "QA22";
         projectAdapter.createProject(200, GSON.toJson(project));
     }
 
-    @AfterTest(description = "Delete Created Test Project")
+    @AfterTest(alwaysRun = true, description = "Delete Created Test Project")
     public void deleteNewTestProjectByCode() {
         projectAdapter.deleteProjectByCode(200, TEST_PROJECT_CODE);
     }
