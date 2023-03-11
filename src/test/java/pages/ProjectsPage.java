@@ -19,6 +19,7 @@ public class ProjectsPage extends BasePage{
     private final static By DESCRIPTION_TEXT_AREA = By.id("description-area");
     private final static By CREATE_PROJECT_BUTTON = By.xpath("//*[contains(text(), 'Create project')]");
 
+
     public ProjectsPage clickCreateNewProjectButton() {
         log.info("Clicking Create New Project Button");
         $(CREATE_NEW_PROJECT_BUTTON).click();
@@ -56,10 +57,12 @@ public class ProjectsPage extends BasePage{
         return new NewProjectPage();
     }
 
-    public void clickProjectLink(String projectName) {
+    public NewProjectPage clickProjectLink(String projectName) {
         log.info("Clicking Project Link with Name = {}",projectName);
        $(getProjectContainerByName(projectName)).$(PROJECT_LINK).click();
+       return new NewProjectPage();
     }
+
 
     private By getProjectContainerByName(String projectName) {
         return By.xpath(String.format(PROJECT_BLOCK_CONTAINER_LOCATOR, projectName));

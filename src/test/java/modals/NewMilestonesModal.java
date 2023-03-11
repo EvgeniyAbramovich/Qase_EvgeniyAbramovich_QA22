@@ -1,7 +1,6 @@
 package modals;
 
 import elements.DataPlaceholder;
-import elements.DropDownMilestone;
 import elements.Input;
 import lombok.extern.log4j.Log4j2;
 import models.Milestones;
@@ -20,7 +19,6 @@ public class NewMilestonesModal extends BaseModal{
         log.info("Setting values = {}", milestones);
         new Input("Milestone name").setValue(milestones.getMilestoneName());
         new DataPlaceholder("Description").setValue(milestones.getDescription());
-        new DropDownMilestone("Status").selectValue(milestones.getStatus().getName());
         new Input("Due date").setValue(milestones.getDueDate());
         new Input("Due date").sendEnterKey();
 

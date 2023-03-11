@@ -1,32 +1,17 @@
 package tests;
 
 import enums.*;
-import models.Project;
+import io.qameta.allure.Description;
+import io.qameta.allure.SeverityLevel;
 import models.TestCase;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
 public class TestCaseTests extends BaseTest{
-
-    private static final String TEST_PROJECT_NAME = "Test Project Test Case";
-    private static final String PROJECT_CODE = "TPTC";
-
-    @BeforeTest(description = "Create Test Project")
-    public void createTestProject(){
-
-        String testCode = PROJECT_CODE;
-        Project project = Project.builder()
-                .title(TEST_PROJECT_NAME)
-                .code(testCode)
-                .description("Test Project")
-                .build();
-        projectAdapter.createProject(200, GSON.toJson(project));
-    }
-
-    @Test(description = "Positive Create TestCase Test", groups = {"Smoke"})
+    @io.qameta.allure.Severity(SeverityLevel.CRITICAL)
+    @Description("Create New Test Case in created Test Project")
+    @Test(description = "Positive Create TestCase Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
     public void newTestCaseTest(){
 
         String projectName = TEST_PROJECT_NAME;
@@ -47,8 +32,4 @@ public class TestCaseTests extends BaseTest{
 
     }
 
-    @AfterTest(description = "Delete Created Test Project")
-    public void deleteNewTestProjectByCode() {
-        projectAdapter.deleteProjectByCode(200, PROJECT_CODE);
-    }
 }

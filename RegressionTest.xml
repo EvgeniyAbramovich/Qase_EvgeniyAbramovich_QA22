@@ -2,14 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Test">
     <test name="Regression Tests on chrome" parallel="tests" thread-count="2">
-        <parameter name="browser" value="chrome"></parameter>
-        <groups>
+       <groups>
             <run>
                 <include name="Regression"/>
             </run>
         </groups>
         <packages>
-            <package name="Tests"/>
+            <package name="tests"/>
         </packages>
     </test>
 </suite>

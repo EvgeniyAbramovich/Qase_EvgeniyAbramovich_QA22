@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import models.DefectResponse;
 import models.Defects;
 import models.Project;
-import models.ProjectResponse;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;

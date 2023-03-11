@@ -1,33 +1,18 @@
 package tests;
 
-import models.Project;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import models.SharedSteps;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class SharedStepsTests extends BaseTest{
-
-    private static final String TEST_PROJECT_NAME = "Test Project Shared Steps";
-    private static final String PROJECT_CODE = "TPSS";
-
-    @BeforeTest(description = "Create Test Project")
-    public void createTestProject(){
-
-        String testCode = PROJECT_CODE;
-
-        Project project = Project.builder()
-                .title(TEST_PROJECT_NAME)
-                .code(testCode)
-                .description("Test Project")
-                .build();
-        projectAdapter.createProject(200, GSON.toJson(project));
-    }
-
-    @Test(description = "Positive Create Shared Step Test", groups = {"Smoke"})
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Create New Shared Step in created Test Project")
+    @Test(description = "Positive Create Shared Step Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
     public void newSharedStepTest(){
 
         String projectName = TEST_PROJECT_NAME;
@@ -45,8 +30,9 @@ public class SharedStepsTests extends BaseTest{
         Assert.assertEquals(editSharedStepPage.getSharedStepDetails(), sharedSteps);
 
         }
-
-        @Test(description = "Negative Shared Step Page", groups = {"Regression"})
+        @Severity(SeverityLevel.NORMAL)
+        @Description("Try to create New Shared Step without required values")
+        @Test(description = "Negative Shared Step Page", groups = {"Regression"}, retryAnalyzer = Retry.class)
     public void negativeSharedStepTest(){
 
         String projectName = TEST_PROJECT_NAME;
@@ -61,8 +47,4 @@ public class SharedStepsTests extends BaseTest{
 
         }
 
-    @AfterTest(description = "Delete Created Test Project")
-    public void deleteNewTestProjectByCode() {
-        projectAdapter.deleteProjectByCode(200, PROJECT_CODE);
-    }
 }

@@ -1,6 +1,5 @@
 package elements;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class DropDown extends BaseElement{
 
     private final static String DROPDOWN_LOCATOR = "//label[text()='%s']/parent::div";
-    private String BUTTON_LOCATOR = ".//button";
+    private String BUTTON_LOCATOR = ".//span";
     private String OPTION_LOCATOR = ".//following::div[@id='modals']//following::div[text()='%s']";
 
     public DropDown(String label) {

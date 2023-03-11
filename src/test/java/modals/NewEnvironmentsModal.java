@@ -5,7 +5,6 @@ import elements.Input;
 import lombok.extern.log4j.Log4j2;
 import models.Environment;
 import org.openqa.selenium.By;
-import pages.ConfigurationsPage;
 import pages.EnvironmentsPage;
 
 import static com.codeborne.selenide.Selenide.$;

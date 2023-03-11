@@ -7,14 +7,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Description;
 import modals.*;
+import models.Project;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import pages.*;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
@@ -48,8 +47,10 @@ protected EditMilestonePage editMilestonePage;
 
 protected final static String USERNAME = PropertyReader.getProperty("qase.username");
 protected final static String PASSWORD = PropertyReader.getProperty("qase.password");
-protected static final Gson GSON = new Gson();
+protected final static Gson GSON = new Gson();
 protected final static ProjectAdapter projectAdapter = new ProjectAdapter();
+protected final static String TEST_PROJECT_NAME = "Test Project";
+protected final static String TEST_PROJECT_CODE = "QA22";
     @Description("Creating Allure Reports")
     @BeforeClass
     static void setupAllureReports() {
@@ -101,6 +102,28 @@ protected final static ProjectAdapter projectAdapter = new ProjectAdapter();
         editMilestonePage = new EditMilestonePage();
 
         }
+
+
+    @BeforeTest(description = "Create Test Project")
+    public void createTestProject(){
+
+        String testCode = TEST_PROJECT_CODE;
+
+        Project project = Project.builder()
+                .title(TEST_PROJECT_NAME)
+                .code(testCode)
+                .description("Test Project")
+                .build();
+
+        projectAdapter.createProject(200, GSON.toJson(project));
+    }
+
+    @AfterTest(description = "Delete Created Test Project")
+    public void deleteNewTestProjectByCode() {
+        projectAdapter.deleteProjectByCode(200, TEST_PROJECT_CODE);
+    }
+
+
     @Description("Close a browser")
     @AfterClass(alwaysRun = true)
     public void tearDown() {

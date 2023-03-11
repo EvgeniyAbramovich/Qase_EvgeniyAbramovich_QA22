@@ -12,7 +12,7 @@ public class DropDownDetail extends BaseElement{
         super(label);
     }
 
-    private final static String DROPDOWN_DETAILS_LOCATOR = "//label[text()='%s']/parent::div//button//child::div";
+    private final static String DROPDOWN_DETAILS_LOCATOR = "//label[text()='%s']/parent::div/child::div";
 
     public String getDropdownDetailValue(){
         SelenideElement dropdownDetail = $(By.xpath(String.format(DROPDOWN_DETAILS_LOCATOR, this.label)));
