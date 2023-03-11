@@ -2,13 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="API Test">
     <test name="API Tests" parallel="tests" thread-count="2">
-       <groups>
-            <run>
-                <include name="API"/>
-            </run>
-        </groups>
-        <packages>
-            <package name="tests"/>
-        </packages>
+        <classes>
+            <class name="tests.api.ApiDefectTests"/>
+            <class name="tests.api.ApiProjectTests"/>
+
+        </classes>
+
     </test>
+
 </suite>
