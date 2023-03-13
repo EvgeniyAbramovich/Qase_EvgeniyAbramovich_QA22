@@ -73,6 +73,8 @@ public class ApiDefectTests{
 
        String actualResponse = defectAdapter.getDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
 
+       GSON.toJson(actualResponse);
+
        Assert.assertEquals(expectedResponse, actualResponse);
 
     }
