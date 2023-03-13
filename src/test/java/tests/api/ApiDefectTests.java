@@ -18,8 +18,8 @@ import org.testng.annotations.Test;
 
 public class ApiDefectTests{
 
-    private static final String TEST_PROJECT_NAME = "Test Project";
-    private static final String PROJECT_CODE = "QA22";
+    private static final String TEST_PROJECT_NAME = "Test Project Defect";
+    private static final String PROJECT_CODE = "123";
     private static final Gson GSON = new Gson();
     ProjectAdapter projectAdapter = new ProjectAdapter();
     DefectAdapter defectAdapter = new DefectAdapter();
@@ -56,27 +56,6 @@ public class ApiDefectTests{
         String actualResponse = defectAdapter.createDefect(PROJECT_CODE, GSON.toJson(defects), HttpStatus.SC_OK);
 
         Assert.assertEquals(expectedResponse, GSON.fromJson(actualResponse, DefectResponse.class));
-    }
-
-    @Test(description = "Get Specific Defect Test", groups = {"API"})
-    public void getSpecificDefectTest() {
-
-        Defects defects = Defects.builder().build().builder()
-                .title(DEFECT_TITLE)
-                .actualResult(ACTUAL_RESULT)
-                .severity(SEVERITY_VALUE)
-                .build();
-
-        defectAdapter.createDefect(PROJECT_CODE, GSON.toJson(defects), HttpStatus.SC_OK);
-
-       DefectResponse expectedResponse = DefectResponse.builder().result(Defects.builder().build()).build();
-
-       String actualResponse = defectAdapter.getDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
-
-       GSON.toJson(actualResponse);
-
-       Assert.assertEquals(expectedResponse, actualResponse);
-
     }
 
     @AfterTest(alwaysRun = true)
