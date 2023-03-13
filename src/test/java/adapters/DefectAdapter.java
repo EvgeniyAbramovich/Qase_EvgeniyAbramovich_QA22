@@ -1,5 +1,7 @@
 package adapters;
 
+import com.google.gson.Gson;
+
 public class DefectAdapter extends BaseAdapter{
 
     private final static String ENDPOINT = "/defect";
@@ -10,5 +12,9 @@ public class DefectAdapter extends BaseAdapter{
 
     public String deleteDefectByProjectCodeAndDefectId(String projectCode, int defectId, int statusCode) {
         return delete(ENDPOINT + "/" + projectCode + "/" + defectId, statusCode);
+    }
+
+    public String getDefectByProjectCodeAndDefectId(String projectCode, int defectId, int statusCode){
+        return get(ENDPOINT + "/" + projectCode + "/" + defectId, statusCode);
     }
 }

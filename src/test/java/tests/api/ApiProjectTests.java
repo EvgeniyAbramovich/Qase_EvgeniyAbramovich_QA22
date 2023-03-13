@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 public class ApiProjectTests{
     ProjectAdapter projectAdapter = new ProjectAdapter();
-    private static final String TEST_PROJECT_NAME = "Test Project Projects API";
-    private static final String PROJECT_CODE = "123";
+    private static final String TEST_PROJECT_NAME = "Test Project";
+    private static final String PROJECT_CODE = "QA22";
     private static final Gson GSON = new Gson();
-    private final String EXPECTED_JSON = "{\"status\":true,\"result\":{\"title\":\"Test Project Projects API\",\"code\":\"123\"," +
+    private final String EXPECTED_JSON = "{\"status\":true,\"result\":{\"title\":\"Test Project\",\"code\":\"QA22\"," +
             "\"counts\":{\"cases\":0,\"suites\":0,\"milestones\":0,\"runs\":{\"total\":0,\"active\":0},\"defects\":" +
             "{\"total\":0,\"open\":0}}}}";
 

@@ -3,21 +3,23 @@ package tests.api;
 import adapters.DefectAdapter;
 import adapters.ProjectAdapter;
 import com.google.gson.Gson;
+import models.Counts;
 import models.DefectResponse;
 import models.Defects;
 import models.Project;
 import org.apache.http.HttpStatus;
+import org.openqa.selenium.remote.Response;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import javax.xml.transform.Result;
 
 public class ApiDefectTests{
 
-    private static final String TEST_PROJECT_NAME = "Test Project Defects API";
-    private static final String PROJECT_CODE = "TPDA";
+    private static final String TEST_PROJECT_NAME = "Test Project";
+    private static final String PROJECT_CODE = "QA22";
     private static final Gson GSON = new Gson();
     ProjectAdapter projectAdapter = new ProjectAdapter();
     DefectAdapter defectAdapter = new DefectAdapter();
@@ -56,9 +58,27 @@ public class ApiDefectTests{
         Assert.assertEquals(expectedResponse, GSON.fromJson(actualResponse, DefectResponse.class));
     }
 
+    @Test(description = "Get Specific Defect Test", groups = {"API"})
+    public void getSpecificDefectTest() {
+
+        Defects defects = Defects.builder().build().builder()
+                .title(DEFECT_TITLE)
+                .actualResult(ACTUAL_RESULT)
+                .severity(SEVERITY_VALUE)
+                .build();
+
+        defectAdapter.createDefect(PROJECT_CODE, GSON.toJson(defects), HttpStatus.SC_OK);
+
+       DefectResponse expectedResponse = DefectResponse.builder().result(Defects.builder().build()).build();
+
+       String actualResponse = defectAdapter.getDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
+
+       Assert.assertEquals(expectedResponse, actualResponse);
+
+    }
+
     @AfterTest(alwaysRun = true)
     public void deleteDefectByProjectCodeAndId(){
-
         defectAdapter.deleteDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
 
     }

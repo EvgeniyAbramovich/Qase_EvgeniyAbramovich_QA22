@@ -13,12 +13,12 @@ Configuration:
       name: consoleAppender
       target: SYSTEM_OUT
       PatternLayout:
-        Pattern: ${DefaultPattern}
+        Pattern: ${Pattern2}
     File:
       name: fileAppender
       fileName: "target/tests.log"
       PatternLayout:
-        Pattern: ${Pattern2}
+        Pattern: ${DefaultPattern}
   Loggers:
     logger:
       -
