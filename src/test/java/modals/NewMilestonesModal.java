@@ -10,7 +10,7 @@ import pages.MilestonesPage;
 import static com.codeborne.selenide.Selenide.$;
 
 @Log4j2
-public class NewMilestonesModal extends BaseModal{
+public class NewMilestonesModal extends BaseModal {
 
     private final static By CREATE_MILESTONE_BUTTON = By.xpath("//button[text()='Create milestone']");
 
@@ -30,8 +30,6 @@ public class NewMilestonesModal extends BaseModal{
         $(CREATE_MILESTONE_BUTTON).click();
         return new MilestonesPage();
     }
-
-
 
 
 }

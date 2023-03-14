@@ -4,8 +4,8 @@ import lombok.extern.log4j.Log4j2;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-
 import java.util.Date;
+
 @Log4j2
 public class TestListener implements ITestListener {
 

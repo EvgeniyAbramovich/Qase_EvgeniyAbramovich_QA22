@@ -8,11 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class TestCaseTests extends BaseTest{
+public class TestCaseTests extends BaseTest {
     @io.qameta.allure.Severity(SeverityLevel.CRITICAL)
     @Description("Create New Test Case in created Test Project")
     @Test(description = "Positive Create TestCase Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
-    public void newTestCaseTest(){
+    public void newTestCaseTest() {
 
         String projectName = TEST_PROJECT_NAME;
         String testCaseName = "Authorization";
@@ -28,7 +28,7 @@ public class TestCaseTests extends BaseTest{
         newTestCaseModal.clickSaveButton();
         repositoryPage.clickTestCaseLink().clickEditButton();
 
-        Assert.assertEquals(editTestCasePage.getTestCaseDetails(),testCase);
+        Assert.assertEquals(editTestCasePage.getTestCaseDetails(), testCase);
 
     }
 

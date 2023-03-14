@@ -11,14 +11,12 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 @Log4j2
-public class NewSharedStepsModal extends BaseModal{
+public class NewSharedStepsModal extends BaseModal {
 
     private final static By ADD_STEP_BUTTON = By.id("addStep");
     private final static By CREATE_BUTTON = By.xpath("//button[text()='Create']");
     private final static By SHARED_STEP_TITLE_INPUT = By.id("title");
     private final static By ERROR_MESSAGE = By.xpath("//*[@id='layout']//descendant::div/child::span/child::span[text()]");
-
-
 
 
     public NewSharedStepsModal fillformSharedSteps(SharedSteps sharedSteps) {

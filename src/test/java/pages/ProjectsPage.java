@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 @Log4j2
-public class ProjectsPage extends BasePage{
+public class ProjectsPage extends BasePage {
 
     private final static String PROJECT_BLOCK_CONTAINER_LOCATOR = "//a[@class='defect-title' and text()='%s']" +
             "/ancestor::tr[@class='project-row']";
@@ -26,7 +26,7 @@ public class ProjectsPage extends BasePage{
         return this;
     }
 
-    public boolean createNewProjectButtonIsPresent () {
+    public boolean createNewProjectButtonIsPresent() {
         log.info("New Project Button is present");
         $(CREATE_NEW_PROJECT_BUTTON).shouldBe(visible);
         return true;
@@ -58,9 +58,9 @@ public class ProjectsPage extends BasePage{
     }
 
     public NewProjectPage clickProjectLink(String projectName) {
-        log.info("Clicking Project Link with Name = {}",projectName);
-       $(getProjectContainerByName(projectName)).$(PROJECT_LINK).click();
-       return new NewProjectPage();
+        log.info("Clicking Project Link with Name = {}", projectName);
+        $(getProjectContainerByName(projectName)).$(PROJECT_LINK).click();
+        return new NewProjectPage();
     }
 
 

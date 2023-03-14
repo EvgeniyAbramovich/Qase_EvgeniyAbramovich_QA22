@@ -4,9 +4,9 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
-public class ProjectTests extends BaseTest{
+public class ProjectTests extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Create New Project")
@@ -17,12 +17,12 @@ public class ProjectTests extends BaseTest{
         String projectDescription = "Good Project";
 
 
-       loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickCreateNewProjectButton().
-               setProjectName(projectName).setProjectCode(projectCode).clickCreateProjectButton();
-       Assert.assertEquals(newProjectPage.getProjectName(projectName), projectName);
-       Assert.assertEquals(newProjectPage.getProjectCode(projectCode), projectCode);
+        loginPage.openLoginPage().setUsername(USERNAME).setPassword(PASSWORD).clickLoginButton().clickCreateNewProjectButton().
+                setProjectName(projectName).setProjectCode(projectCode).clickCreateProjectButton();
+        Assert.assertEquals(newProjectPage.getProjectName(projectName), projectName);
+        Assert.assertEquals(newProjectPage.getProjectCode(projectCode), projectCode);
 
-        }
+    }
 
 
 }

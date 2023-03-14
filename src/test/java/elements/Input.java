@@ -6,8 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
-public class Input extends BaseElement{
+public class Input extends BaseElement {
     public Input(String label) {
         super(label);
     }
@@ -17,7 +18,7 @@ public class Input extends BaseElement{
     public void setValue(String value) {
         SelenideElement input = $(By.xpath(String.format(INPUT_LOCATOR, this.label)));
         scrollIntoView(input);
-        log.info("Setting '{}' value = {}",label,value);
+        log.info("Setting '{}' value = {}", label, value);
         input.sendKeys(value);
     }
 

@@ -7,12 +7,12 @@ import models.Suite;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SuiteTests extends BaseTest{
+public class SuiteTests extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Create New Test Suite in created Test Project")
     @Test(description = "Positive Create Suite Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
-    public void newSuiteTest(){
+    public void newSuiteTest() {
 
         String projectName = TEST_PROJECT_NAME;
         String testSuiteName = "Smoke";

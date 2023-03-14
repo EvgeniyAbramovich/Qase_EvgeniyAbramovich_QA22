@@ -9,13 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-
-public class EnvironmentsTests extends BaseTest{
+public class EnvironmentsTests extends BaseTest {
 
 
     @DataProvider
-    public Object[][] environmentData(){
+    public Object[][] environmentData() {
         return new Object[][]{
                 {"New Environment", "Envir", "All Right", "qase.io"},
                 {"Good Environment", "QA22", "", "yandex.ru"},
@@ -24,6 +22,7 @@ public class EnvironmentsTests extends BaseTest{
 
         };
     }
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Create New Environment in created Test Project with different values")
     @Test(dataProvider = "environmentData", description = "Positive Create Environment Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
@@ -39,7 +38,7 @@ public class EnvironmentsTests extends BaseTest{
                 .description(description).host(testHost).build();
         newEnvironmentsModal.fillformEnvironments(testEnvironment).clickCreateEnvironmentButton().clickEnvironmentTitle();
 
-        Assert.assertEquals(editEnvironmentPage.getEnvironmentDetails(),testEnvironment);
+        Assert.assertEquals(editEnvironmentPage.getEnvironmentDetails(), testEnvironment);
 
         homePage.clickAccountButton().clickSignOutButton();
 

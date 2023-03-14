@@ -2,11 +2,11 @@ package enums;
 
 public enum Behavior {
 
-    NOT_SET ("Not set"), POSITIVE ("Positive"), NEGATIVE ("Negative"), DESTRUCTIVE ("Destructive");
+    NOT_SET("Not set"), POSITIVE("Positive"), NEGATIVE("Negative"), DESTRUCTIVE("Destructive");
 
     private final String name;
 
-    Behavior(String name){
+    Behavior(String name) {
         this.name = name;
     }
 
@@ -16,7 +16,7 @@ public enum Behavior {
 
     public static Behavior fromString(String value) {
         for (Behavior behavior : Behavior.values()) {
-            if (behavior.getName().equals(value)){
+            if (behavior.getName().equals(value)) {
                 return behavior;
             }
         }

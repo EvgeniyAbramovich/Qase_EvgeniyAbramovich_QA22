@@ -4,7 +4,7 @@ import elements.DataPlaceHolderDetail;
 import elements.InputDetail;
 import models.SharedSteps;
 
-public class EditSharedStepPage extends BasePage{
+public class EditSharedStepPage extends BasePage {
 
     public SharedSteps getSharedStepDetails() {
         SharedSteps.SharedStepsBuilder sharedSteps = SharedSteps.builder();

@@ -4,7 +4,7 @@ import elements.DataPlaceHolderDetail;
 import elements.InputDetail;
 import models.Environment;
 
-public class EditEnvironmentPage extends BasePage{
+public class EditEnvironmentPage extends BasePage {
 
     public Environment getEnvironmentDetails() {
         Environment.EnvironmentBuilder environment = Environment.builder();

@@ -1,10 +1,10 @@
 package adapters;
 
-public class ProjectAdapter extends BaseAdapter{
+public class ProjectAdapter extends BaseAdapter {
 
     private static final String ENDPOINT = "/project";
 
-    public String createProject(int statusCode, String requestBody){
+    public String createProject(int statusCode, String requestBody) {
         return post(ENDPOINT, statusCode, requestBody);
     }
 
@@ -12,7 +12,7 @@ public class ProjectAdapter extends BaseAdapter{
         return get(ENDPOINT + "/" + projectCode, statusCode);
     }
 
-    public String deleteProjectByCode(int statusCode, String projectCode){
+    public String deleteProjectByCode(int statusCode, String projectCode) {
 
         return delete(ENDPOINT + "/" + projectCode, statusCode);
     }

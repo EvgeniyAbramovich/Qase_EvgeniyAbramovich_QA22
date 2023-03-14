@@ -3,20 +3,17 @@ package tests.api;
 import adapters.DefectAdapter;
 import adapters.ProjectAdapter;
 import com.google.gson.Gson;
-import models.Counts;
 import models.DefectResponse;
 import models.Defects;
 import models.Project;
 import org.apache.http.HttpStatus;
-import org.openqa.selenium.remote.Response;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-public class ApiDefectTests{
+public class ApiDefectTests {
 
     private static final String TEST_PROJECT_NAME = "Test Project Defect";
     private static final String PROJECT_CODE = "123";
@@ -29,19 +26,19 @@ public class ApiDefectTests{
     int DEFECT_ID = 1;
 
     @BeforeTest(alwaysRun = true, description = "Create Test Project")
-    public void createTestProject(){
+    public void createTestProject() {
 
-            String testCode = PROJECT_CODE;
+        String testCode = PROJECT_CODE;
 
-            Project project = Project.builder()
-                    .title(TEST_PROJECT_NAME)
-                    .code(testCode)
-                    .description("Test Project")
-                    .build();
+        Project project = Project.builder()
+                .title(TEST_PROJECT_NAME)
+                .code(testCode)
+                .description("Test Project")
+                .build();
 
-            projectAdapter.createProject(200, GSON.toJson(project));
+        projectAdapter.createProject(200, GSON.toJson(project));
 
-        }
+    }
 
     @Test(description = "Create Defect Test", groups = {"API"})
     public void createDefectTest() {
@@ -59,7 +56,7 @@ public class ApiDefectTests{
     }
 
     @AfterTest(alwaysRun = true)
-    public void deleteDefectByProjectCodeAndId(){
+    public void deleteDefectByProjectCodeAndId() {
         defectAdapter.deleteDefectByProjectCodeAndDefectId(PROJECT_CODE, DEFECT_ID, HttpStatus.SC_OK);
 
     }

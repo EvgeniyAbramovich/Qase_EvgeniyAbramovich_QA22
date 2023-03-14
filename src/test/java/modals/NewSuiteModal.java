@@ -8,8 +8,9 @@ import org.openqa.selenium.By;
 import pages.RepositoryPage;
 
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
-public class NewSuiteModal extends BaseModal{
+public class NewSuiteModal extends BaseModal {
 
     private final static By CREATE_BUTTON = By.xpath("//span[text()='Create']");
 

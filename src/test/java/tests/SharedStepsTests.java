@@ -7,13 +7,11 @@ import models.SharedSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-
-public class SharedStepsTests extends BaseTest{
+public class SharedStepsTests extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Create New Shared Step in created Test Project")
     @Test(description = "Positive Create Shared Step Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
-    public void newSharedStepTest(){
+    public void newSharedStepTest() {
 
         String projectName = TEST_PROJECT_NAME;
         String sharedStepName = "Authorization";
@@ -29,11 +27,12 @@ public class SharedStepsTests extends BaseTest{
 
         Assert.assertEquals(editSharedStepPage.getSharedStepDetails(), sharedSteps);
 
-        }
-        @Severity(SeverityLevel.NORMAL)
-        @Description("Try to create New Shared Step without required values")
-        @Test(description = "Negative Shared Step Page", groups = {"Regression"}, retryAnalyzer = Retry.class)
-    public void negativeSharedStepTest(){
+    }
+
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Try to create New Shared Step without required values")
+    @Test(description = "Negative Shared Step Page", groups = {"Regression"}, retryAnalyzer = Retry.class)
+    public void negativeSharedStepTest() {
 
         String projectName = TEST_PROJECT_NAME;
         String sharedStepName = "Authorization";
@@ -45,6 +44,6 @@ public class SharedStepsTests extends BaseTest{
 
         Assert.assertTrue(newSharedStepsModal.ErrorMessageIsPresent());
 
-        }
+    }
 
 }

@@ -11,7 +11,7 @@ import pages.RepositoryPage;
 import static com.codeborne.selenide.Selenide.$;
 
 @Log4j2
-public class NewTestCaseModal extends BaseModal{
+public class NewTestCaseModal extends BaseModal {
 
     private final static By SAVE_BUTTON = By.id("save-case");
 
@@ -37,8 +37,6 @@ public class NewTestCaseModal extends BaseModal{
         $(SAVE_BUTTON).click();
         return new RepositoryPage();
     }
-
-
 
 
 }

@@ -7,7 +7,7 @@ import models.Milestones;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MilestonesTests extends BaseTest{
+public class MilestonesTests extends BaseTest {
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Create New Milestone in created Test Project")

@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class LoginTests extends BaseTest{
+public class LoginTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("LogIn on qase.io for work with you projects")
     @Test(description = "Positive Login Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
@@ -18,6 +18,7 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(projectsPage.createNewProjectButtonIsPresent());
 
     }
+
     @Severity(SeverityLevel.NORMAL)
     @Description("LogOut from your account")
     @Test(description = "Positive Logout Test", groups = {"Smoke"}, retryAnalyzer = Retry.class)
@@ -28,6 +29,7 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(loginPage.LoginButtonIsPresent());
 
     }
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Try to LogIn with incorrect password")
     @Test(dataProvider = "negativeLoginData", description = "Negative Login Test", groups = {"Regression"}, retryAnalyzer = Retry.class)
@@ -39,7 +41,7 @@ public class LoginTests extends BaseTest{
     }
 
     @DataProvider
-    public Object[][] negativeLoginData(){
+    public Object[][] negativeLoginData() {
         return new Object[][]{
                 {"tinkerbox@yandex.by", "fhfhfh"},
                 {"fakebox@mail.ru", "Tinker89Ggg123"},

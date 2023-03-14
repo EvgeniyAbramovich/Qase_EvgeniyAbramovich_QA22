@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class ConfigurationTests extends BaseTest{
+public class ConfigurationTests extends BaseTest {
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Create New Configuration in created Test Project")

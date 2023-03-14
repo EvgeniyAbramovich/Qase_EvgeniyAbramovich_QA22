@@ -6,7 +6,7 @@ import elements.InputDetail;
 import enums.*;
 import models.TestCase;
 
-public class EditTestCasePage extends BasePage{
+public class EditTestCasePage extends BasePage {
 
     public TestCase getTestCaseDetails() {
         TestCase.TestCaseBuilder testCase = TestCase.builder();
@@ -22,7 +22,7 @@ public class EditTestCasePage extends BasePage{
         testCase.isFlaky(IsFlaky.fromString(new DropDownDetail("Is flaky").getDropdownDetailValue()));
         testCase.layer(Layer.fromString(new DropDownDetail("Layer").getDropdownDetailValue()));
         testCase.automationStatus(AutomationStatus.fromString(new DropDownDetail("Automation status").getDropdownDetailValue()));
-        testCase.type(Type.fromString(new DropDownDetail( "Type").getDropdownDetailValue()));
+        testCase.type(Type.fromString(new DropDownDetail("Type").getDropdownDetailValue()));
 
         return testCase.build();
 

@@ -7,8 +7,9 @@ import org.openqa.selenium.By;
 import pages.ConfigurationsPage;
 
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
-public class NewConfigurationsModal extends BaseModal{
+public class NewConfigurationsModal extends BaseModal {
 
     private final static By CREATE_BUTTON = By.xpath("//span[@class='UdZcu9' and text()='Create']");
 

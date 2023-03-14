@@ -5,8 +5,9 @@ import modals.NewMilestonesModal;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
-public class MilestonesPage extends BasePage{
+public class MilestonesPage extends BasePage {
 
     private final static By CREATE_MILESTONE_BUTTON = By.id("createButton");
 

@@ -4,8 +4,9 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     private final static By PROJECTS_LINK = By.xpath("//a[text()='Projects']");
     private final static By WORKSPACE_LINK = By.xpath("//a[text()='Workspace']");

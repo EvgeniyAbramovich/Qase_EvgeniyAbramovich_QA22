@@ -8,8 +8,9 @@ import org.openqa.selenium.By;
 import pages.EnvironmentsPage;
 
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
-public class NewEnvironmentsModal extends BaseModal{
+public class NewEnvironmentsModal extends BaseModal {
 
 
     private final static By CREATE_ENVIRONMENT_BUTTON = By.xpath("//button[text()='Create environment']");

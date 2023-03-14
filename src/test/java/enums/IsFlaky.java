@@ -2,11 +2,11 @@ package enums;
 
 public enum IsFlaky {
 
-    NO ("No"), YES ("Yes");
+    NO("No"), YES("Yes");
 
     private final String name;
 
-    IsFlaky(String name){
+    IsFlaky(String name) {
         this.name = name;
     }
 
@@ -16,7 +16,7 @@ public enum IsFlaky {
 
     public static IsFlaky fromString(String value) {
         for (IsFlaky isFlaky : IsFlaky.values()) {
-            if (isFlaky.getName().equals(value)){
+            if (isFlaky.getName().equals(value)) {
                 return isFlaky;
             }
         }

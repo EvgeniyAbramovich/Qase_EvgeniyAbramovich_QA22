@@ -16,6 +16,7 @@ public class Counts {
         private int total, active;
 
     }
+
     @Data
     @Builder
     public static class Defects {

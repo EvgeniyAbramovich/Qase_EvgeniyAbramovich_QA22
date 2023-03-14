@@ -2,11 +2,11 @@ package enums;
 
 public enum Layer {
 
-    E2E ("E2E"), API ("API"), UNIT ("Unit");
+    E2E("E2E"), API("API"), UNIT("Unit");
 
     private final String name;
 
-    Layer(String name){
+    Layer(String name) {
         this.name = name;
     }
 
@@ -16,7 +16,7 @@ public enum Layer {
 
     public static Layer fromString(String value) {
         for (Layer layer : Layer.values()) {
-            if (layer.getName().equals(value)){
+            if (layer.getName().equals(value)) {
                 return layer;
             }
         }

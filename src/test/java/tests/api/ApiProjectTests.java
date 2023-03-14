@@ -1,6 +1,6 @@
 package tests.api;
 
-import adapters.*;
+import adapters.ProjectAdapter;
 import com.google.gson.Gson;
 import models.Project;
 import org.testng.Assert;
@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class ApiProjectTests{
+public class ApiProjectTests {
     ProjectAdapter projectAdapter = new ProjectAdapter();
     private static final String TEST_PROJECT_NAME = "Test Project";
     private static final String PROJECT_CODE = "QA22";
@@ -19,7 +19,7 @@ public class ApiProjectTests{
 
 
     @BeforeTest(alwaysRun = true, description = "Create Test Project")
-    public void createTestProject(){
+    public void createTestProject() {
 
         String testCode = PROJECT_CODE;
 
@@ -35,7 +35,7 @@ public class ApiProjectTests{
 
     @Test(description = "Get Project By Code Test", groups = {"API"})
     public void getProjectByCodeTest() {
-        String responseBody = projectAdapter.getProjectByCode(200,PROJECT_CODE);
+        String responseBody = projectAdapter.getProjectByCode(200, PROJECT_CODE);
         Assert.assertEquals(responseBody, EXPECTED_JSON);
 
     }

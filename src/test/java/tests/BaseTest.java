@@ -1,6 +1,7 @@
 package tests;
 
 import adapters.ProjectAdapter;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.google.gson.Gson;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -8,49 +9,50 @@ import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Description;
 import modals.*;
 import models.Project;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
-import com.codeborne.selenide.Configuration;
-import org.openqa.selenium.WebDriver;
 import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
+
 @Listeners(TestListener.class)
 public abstract class BaseTest {
 
 
-protected LoginPage loginPage;
-protected ProjectsPage projectsPage;
-protected NewProjectPage newProjectPage;
-protected HomePage homePage;
-protected NewTestCaseModal newTestCaseModal;
-protected NewConfigurationsModal newConfigurationsModal;
-protected NewEnvironmentsModal newEnvironmentsModal;
-protected NewMilestonesModal newMilestonesModal;
-protected NewSharedStepsModal newSharedStepsModal;
-protected RepositoryPage repositoryPage;
-protected ConfigurationsPage configurationsPage;
-protected EnvironmentsPage environmentsPage;
-protected NewSuiteModal newSuiteModal;
-protected SharedStepsPage sharedStepsPage;
-protected TestCaseDetailsModal testCaseDetailsModal;
-protected EditEnvironmentPage editEnvironmentPage;
-protected EditSharedStepPage editSharedStepPage;
-protected EditTestCasePage editTestCasePage;
-protected MilestonesPage milestonesPage;
-protected EditMilestonePage editMilestonePage;
+    protected LoginPage loginPage;
+    protected ProjectsPage projectsPage;
+    protected NewProjectPage newProjectPage;
+    protected HomePage homePage;
+    protected NewTestCaseModal newTestCaseModal;
+    protected NewConfigurationsModal newConfigurationsModal;
+    protected NewEnvironmentsModal newEnvironmentsModal;
+    protected NewMilestonesModal newMilestonesModal;
+    protected NewSharedStepsModal newSharedStepsModal;
+    protected RepositoryPage repositoryPage;
+    protected ConfigurationsPage configurationsPage;
+    protected EnvironmentsPage environmentsPage;
+    protected NewSuiteModal newSuiteModal;
+    protected SharedStepsPage sharedStepsPage;
+    protected TestCaseDetailsModal testCaseDetailsModal;
+    protected EditEnvironmentPage editEnvironmentPage;
+    protected EditSharedStepPage editSharedStepPage;
+    protected EditTestCasePage editTestCasePage;
+    protected MilestonesPage milestonesPage;
+    protected EditMilestonePage editMilestonePage;
 
-protected final static String USERNAME = PropertyReader.getProperty("qase.username");
-protected final static String PASSWORD = PropertyReader.getProperty("qase.password");
-protected final static Gson GSON = new Gson();
-protected final static ProjectAdapter projectAdapter = new ProjectAdapter();
-protected final static String TEST_PROJECT_NAME = "Test Project";
-protected final static String TEST_PROJECT_CODE = "QA22";
+    protected final static String USERNAME = PropertyReader.getProperty("qase.username");
+    protected final static String PASSWORD = PropertyReader.getProperty("qase.password");
+    protected final static Gson GSON = new Gson();
+    protected final static ProjectAdapter projectAdapter = new ProjectAdapter();
+    protected final static String TEST_PROJECT_NAME = "Test Project";
+    protected final static String TEST_PROJECT_CODE = "QA22";
+
     @Description("Creating Allure Reports")
     @BeforeClass
     static void setupAllureReports() {
@@ -101,11 +103,11 @@ protected final static String TEST_PROJECT_CODE = "QA22";
         milestonesPage = new MilestonesPage();
         editMilestonePage = new EditMilestonePage();
 
-        }
+    }
 
 
     @BeforeTest(alwaysRun = true, description = "Create Test Project")
-    public void createTestProject(){
+    public void createTestProject() {
 
         String testCode = TEST_PROJECT_CODE;
 

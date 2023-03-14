@@ -1,9 +1,11 @@
 package pages;
 
-import elements.*;
+import elements.DataPlaceHolderDetail;
+import elements.InputDetail;
+import elements.InputMilestoneDetail;
 import models.Milestones;
 
-public class EditMilestonePage extends BasePage{
+public class EditMilestonePage extends BasePage {
 
     public Milestones getMilestoneDetails() {
         Milestones.MilestonesBuilder milestone = Milestones.builder();
