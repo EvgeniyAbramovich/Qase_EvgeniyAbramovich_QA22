@@ -12,7 +12,4 @@ public class DefectAdapter extends BaseAdapter {
         return delete(ENDPOINT + "/" + projectCode + "/" + defectId, statusCode);
     }
 
-    public String getDefectByProjectCodeAndDefectId(String projectCode, int defectId, int statusCode) {
-        return get(ENDPOINT + "/" + projectCode + "/" + defectId, statusCode);
-    }
 }
